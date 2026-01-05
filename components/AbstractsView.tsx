@@ -53,18 +53,12 @@ export default function AbstractsView({ onAbstractClick }: Props) {
         if (!searchTerm) return true;
         const term = searchTerm.toLowerCase().trim();
         
-        // Normalize strings for flexible poster matching (e.g. "Poster # 1", "Poster 1", "1")
+        // Normalize strings for flexible poster matching
         const normalize = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
         const slotNormalized = normalize(abstract.presentationSlot);
         const termNormalized = normalize(term);
         
-        // Special check: if searching for a number like "1", check if slot is "poster#1" or just "1"
-        // If term is "1", termNormalized is "1". slot "Poster # 1" -> "poster1".
-        // "poster1".includes("1") is true.
-        // If term is "poster 1", termNormalized is "poster1". "poster1".includes("poster1") is true.
         const isSlotMatch = slotNormalized.includes(termNormalized);
-
-        // Standard checks
         const isTitleMatch = abstract.title.toLowerCase().includes(term);
         const isPresenterMatch = abstract.presenter.name.toLowerCase().includes(term);
         const isIdMatch = abstract.id.toLowerCase().includes(term);

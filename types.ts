@@ -44,5 +44,5 @@ export interface Sponsor {
   name: string;
   level: 'Gold' | 'Green' | 'Friend';
   url: string;
-  logo?: string; // Optional URL for logo
+  logo?: string; // Optional URL/path for logo image
 }

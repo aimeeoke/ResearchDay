@@ -32,9 +32,9 @@ export default function App() {
               </button>
             ) : (
               <img 
-                src="https://picsum.photos/40/40" 
+                src="/CSU-Ram-Head.png" 
                 alt="CVMBS Logo" 
-                className="w-10 h-10 rounded-full border-2 border-[#C8C372]"
+                className="w-10 h-10 rounded-full"
               />
             )}
             <h1 className="text-xl font-bold truncate">
