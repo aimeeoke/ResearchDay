@@ -19,25 +19,31 @@ export default function AbstractsView({ onAbstractClick }: Props) {
     affiliation: ''
   });
 
-  // Extract unique values for dropdowns
-  const options = useMemo(() => {
-    const depts = new Set<string>();
-    const mentors = new Set<string>();
-    const affiliations = new Set<string>();
+  // Fixed department list
+  const departments = [
+    'Biomedical Sciences',
+    'Clinical Sciences',
+    'Environmental & Radiological Health Sciences',
+    'Microbiology, Immunology, and Pathology',
+    'Other'
+  ];
 
-    abstractsData.forEach(a => {
-      depts.add(a.presenter.department);
-      a.mentors.forEach(m => mentors.add(m));
-      a.affiliations.forEach(aff => affiliations.add(aff));
-    });
+  // Curated mentor list
+  const mentors = [
+    "A Russell Moore", "Abdullatif Alsulami", "Adam Chicco", "Adam Harris", "Alexander Brandl", "Amanda Woerman", "Amy MacNeill", "Ana Clara Bobadilla", "Andrea Oliver", "Andres Bonilla", "Angela Bosco-Lauth", "Anne Avery", "Ashley McGrew", "Barbara Wolfe", "Ben Giese", "Brad Borlee", "Brendan Podell", "Bret Smith", "Brian Foy", "Camille Torres-Henderson", "Candace Mathiason", "Carleigh Fedorka", "Carol Wilusz", "Carolina Mehaffy", "Caroline Kern-Allely", "Casey Gries", "Catriona MacPhail", "Christianne Magee", "Christie Mayo", "Christopher Kawcak", "Christopher Vaaga", "Claire de La Serre", "Claudia Wiese", "Colleen Duncan", "Dan Frazen", "Dan Regan", "Danielle Buttke", "Danielle Frey", "Dawit Tesfaye", "Debbie Lee", "Del Leary", "Delaney Worthington", "Donovan Anderson", "Douglas Thamm", "Drew Koch", "Elaine Carnevale", "Elissa Randall", "Elizabeth Arnett-Chin", "Emily Gallichotte", "Emily Perkins", "Emily Rout", "Erin McNulty", "Fiona Hollinshead", "Gary Luckasen", "Gayathriy Balamayooran", "Gregory Ebel", "James Larkin", "Jaret Pullen", "Jason Bleedorn", "Jason Lombard", "Jayne Aiken", "Jennifer Hatzel", "Jennifer Hawley", "Jennifer Peel", "Jenny Sones", "Jeremiah Easley", "Jessica Metcalf", "John Belisle", "Joseph Westrich", "Joshua Schaeffer", "Jozsef Vigh", "Julie Moreno", "Julien Guillaumin", "Kalani Williams", "Kapahi Kawai Puaa", "Karen Dobos", "Karen Fox", "Kat Forrest", "Kathryn Wotman", "Kathy Whitman", "Katie Seabaugh", "Katie Sikes", "Katja Sutherland", "Katriana Popichak", "Keara Boss", "Kelly Hall", "Kelly Santangelo", "Kelly Sullivan", "Kim Baker", "Kristin Zersen", "Laura Ashton", "Laura Pulscher", "Lauren Luedke", "Lauren Young", "Linda Dillenbeck", "Lori Kogan", "Lucas Argueso", "Luisa M. Nieto Ramirez", "Luke Bass", "Luke Montrose", "Lynn Pezzanite", "Mark Erickson", "Mark Stenglein", "Mark Zabel", "Marlis Rezende", "Matthew Jorgensen", "Mercedes Gonzalez-Juarrero", "Michael Lappin", "Michael Leibowitz", "Michelle Savran", "Miranda Sadar", "Mo Salman", "Morgan Valley", "Natalie Urie", "Nathaniel Denkers", "Nicole Kelp", "Noelia Altina", "Olivia Arnold", "Petra Cerna", "Philip Purdy", "Phillida Charley", "Purva Sanghvi", "Raissa Chunko", "Ralf Sudowe", "Raven McGann", "Raymond Goodrich", "Rebecca Makii", "Rebecca Niemiec", "Rebekah Kading", "Richard Bowen", "Richard McCosh", "Ron Tjalkens", "Rushika Perera", "Ryan Eastman", "Ryan Sadler", "Samantha Beeson", "Samantha Evans", "Sangeeta Rao", "Sarah Marvel", "Sarah Raabis", "Sarah Shropshire", "Sean Boland", "Seonil Kim", "Shari Lanning", "Sheryl Magzamen", "Stephanie McGrath", "Steven Dow", "Stuart Tobet", "Sue VandeWoude", "Susan Bailey", "Takamitsu Kato", "Tara Nordgren", "Thomas Johnson", "Tiffany Martin", "Tiffany Weir", "Tom LaRocca", "Tony Schountz", "Tracy Webb", "Treana Mayer", "Valeria Scorza", "Webb Craig", "William Brazile", "Yuichi Onda"
+  ];
 
-    return {
-      departments: Array.from(depts).sort(),
-      researchTypes: Object.values(ResearchType),
-      mentors: Array.from(mentors).sort(),
-      affiliations: Array.from(affiliations).sort()
-    };
-  }, []);
+  // Curated affiliation list
+  const affiliations = [
+    "ARBL", "Brain Research Center", "CCTSI T32", "Cardiovascular Research Center", "Center for Companion Animal Studies", "Center for Vector-Borne Infectious Diseases", "Equine Reproduction Laboratory", "Equine Research Laboratories", "Flint Animal Cancer Center", "IDRRTP T32", "IMSD T32", "Infectious Disease Research Center", "MAP ERC", "MARC T34", "MIP URF", "MSTP T32", "Mycobacteria Research Laboratories", "Mycobacterial Research Laboratories", "NIH T35", "Orthopaedic Research Center", "PREP", "Preclinical Surgical Research Lab", "Prion Research Center", "Program for Research in Immunology and Microbiology Education (PRIME)", "Research Innovation Center", "Translational Medicine Institute", "VSSP", "Veterinary Diagnostic Laboratories", "Young Investigators", "qCMB T32"
+  ];
+
+  const options = useMemo(() => ({
+    departments,
+    researchTypes: Object.values(ResearchType),
+    mentors,
+    affiliations
+  }), []);
 
   const activeFilterCount = Object.values(filters).filter(Boolean).length;
 
@@ -221,8 +227,10 @@ export default function AbstractsView({ onAbstractClick }: Props) {
 
             <div className="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
               <div className="flex items-center gap-1">
-                <span>Mentor: {abstract.mentors[0]}</span>
-                {abstract.mentors.length > 1 && <span> et al.</span>}
+                <span>
+                  Mentor{abstract.mentors.length > 1 ? 's' : ''}: {abstract.mentors.slice(0, 2).join(', ')}
+                  {abstract.mentors.length > 2 && <span> et al.</span>}
+                </span>
               </div>
               {abstract.location && (
                 <span className="bg-orange-50 text-orange-700 px-2 py-0.5 rounded">
