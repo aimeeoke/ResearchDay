@@ -1,0 +1,161 @@
+import { Abstract, ResearchType, PresentationType, ScheduleEvent, Sponsor } from './types';
+
+export const scheduleData: ScheduleEvent[] = [
+  { time: "9:00 – 10:00 am", title: "Check-in, Poster set-up", description: "Loading oral presentations to room computers", type: 'general' },
+  { time: "10:00 – 10:15 am", title: "Opening Remarks", location: "Auditorium", type: 'general' },
+  { time: "10:15 – 11:15 am", title: "Undergraduate Poster Session", location: "Grand Events Hall", type: 'session' },
+  { time: "11:15 – 11:30 am", title: "Break", description: "Undergrads remove posters", type: 'break' },
+  { time: "11:30 – 1:30 pm", title: "Session I", description: "Oral Session 1A: Foundational Science (Auditorium)\nOral Session 2A: Translational Science (Boardroom)\nPoster Session 1: Odd Numbers (Grand Events Hall)", type: 'session' },
+  { time: "1:30 – 1:45 pm", title: "Break", description: "Remove odd posters, hang even posters", type: 'break' },
+  { time: "1:45 – 3:45 pm", title: "Session II", description: "Oral Session 2A: Foundational Science (Boardroom)\nOral Session 2B: Translational Science (Auditorium)\nPoster Session 2: Even Numbers (Grand Events Hall)", type: 'session' },
+  { time: "3:45 – 4:15 pm", title: "Refreshments & Desserts", description: "Remove all posters", type: 'social' },
+  { time: "4:15 – 5:00 pm", title: "Research Day Keynote", type: 'general' },
+  { time: "5:00 – 5:30 pm", title: "Awards Ceremony", type: 'social' },
+];
+
+export const sponsorsData: Sponsor[] = [
+  { name: "Antech Diagnostics", level: 'Gold', url: "https://www.antechdiagnostics.com/" },
+  { name: "PhotonPharma", level: 'Gold', url: "https://photonpharmaceuticals.com/" },
+  { name: "Purina", level: 'Gold', url: "https://www.purinainstitute.com/" },
+  { name: "Zoetis", level: 'Green', url: "https://www.zoetis.com/" },
+  { name: "CSU Strata", level: 'Friend', url: "https://csustrata.org/" },
+];
+
+export const abstractsData: Abstract[] = [
+  {
+    id: "1",
+    title: "Preliminary Analysis of Bloodmeal Sources of Mosquitoes Collected from Myanmar",
+    authors: "Ismaaeel Abdur-Rahmaan, Austin J Mejia, NP Phwe, Pyaephyo Aung, TSM Hitke, Tin Htun Aung, Ohnmar Aung, Nicole Gardner, Tierra Smiley Evans, Christine Kreuder-Johnson, and Rebekah C Kading",
+    body: "Understanding the interactions between hosts and vectors is key to deciphering the transmission patterns of arthropod-borne viruses. This knowledge is especially valuable in Southeast Asia...",
+    presenter: { name: "Ismaaeel Abdur-Rahmaan", level: "Post-Baccalaureate", department: "Microbiology, Immunology, and Pathology" },
+    researchType: ResearchType.Foundational,
+    mentors: ["Rebekah Kading"],
+    affiliations: ["PREP", "Center for Vector-Borne Infectious Diseases"],
+    presentationType: PresentationType.Poster,
+    presentationSlot: "Poster # 1",
+    location: "Grand Events Hall"
+  },
+  {
+    id: "2",
+    title: "Rapamycin Treatment Mitigates Alzheimer’s Disease–Associated Proteotoxicity in Caenorhabditis elegans",
+    authors: "Samirah Alkhudaydi, Abdullatif Alsulami, Stephanie McGrath and Julie A Moreno",
+    body: "Alzheimer’s disease (AD) is a progressive neurodegenerative disorder characterized by the accumulation of misfolded proteins...",
+    presenter: { name: "Samirah Alkhudaydi", level: "MS Student", department: "Environmental & Radiological Health Sciences" },
+    researchType: ResearchType.Foundational,
+    mentors: ["Julie Moreno"],
+    affiliations: [],
+    presentationType: PresentationType.Poster,
+    presentationSlot: "Poster # 2",
+    location: "Grand Events Hall"
+  },
+  {
+    id: "3",
+    title: "Investigating factors associated with adrenal disease in intact domestic ferrets (Mustela putorius furo)",
+    authors: "Kassandra Alonso, Linda Dillenbeck, Pavla Jerabkova, Fiona K Hollinshead, S Alligood, Mac Harris, and Barb A Wolfe",
+    body: "Adrenocortical-associated endocrinopathy (AAE) is an incurable endocrine disorder affecting 70% of North American domestic ferrets...",
+    funding: "Boehringer Ingelheim and Lordi Foundation",
+    presenter: { name: "Kasandra Alonso", level: "DVM Student", department: "Clinical Sciences" },
+    researchType: ResearchType.Clinical,
+    mentors: ["Barbara Wolfe"],
+    affiliations: ["VSSP", "ARBL"],
+    presentationType: PresentationType.Poster,
+    presentationSlot: "Poster # 3",
+    location: "Grand Events Hall"
+  },
+  {
+    id: "Oral-1A-1",
+    title: "NBS1 Deficiency Enhances Sensitivity to ATR Inhibition by Impairing the DNA Damage Response",
+    authors: "Gamze Badakul, Junko Maeda, and Takamitsu A Kato",
+    body: "Nijmegen Breakage Syndrome (NBS) is a rare autosomal recessive disorder caused by mutations in the NBN gene...",
+    funding: "Dr. Akiko Ueno Radiobiology Fund (TAK) and Colorado State University CVMBS Research Council grant (TAK)",
+    presenter: { name: "Gamze Badakul", level: "PhD Student", department: "Environmental & Radiological Health Sciences" },
+    researchType: ResearchType.Foundational,
+    mentors: ["Takamitsu Kato"],
+    affiliations: [],
+    presentationType: PresentationType.Oral,
+    presentationSlot: "Session 1A, 11:30- 11:45 am",
+    location: "Auditorium"
+  },
+  {
+    id: "Oral-1B-1",
+    title: "Telomeric RNA (TERRA) is Elevated in Canine Osteosarcoma, a Hallmark of the Alternative Lengthening of Telomeres (ALT) Pathway",
+    authors: "Owen Bevis, Sunetra Das, Dawn Duval, Douglas H Thamm, Kirill Grigorev, Christopher E Mason and Susan M Bailey",
+    body: "Telomeres, tandem arrays of repetitive G-rich sequence (5’-TTAGGG-3’ in all vertebrates), are protective “caps” at the ends of chromosomes...",
+    funding: "CSU Thematic Units of Excellence (TUNE) and NASA (80NSSC19K0434)",
+    presenter: { name: "Owen Bevis", level: "PhD Candidate", department: "Environmental & Radiological Health Sciences" },
+    researchType: ResearchType.Translational,
+    mentors: ["Susan Bailey", "Tom LaRocca"],
+    affiliations: ["qCMB T32"],
+    presentationType: PresentationType.Oral,
+    presentationSlot: "Session 1B, 11:30 – 11:45 pm",
+    location: "Boardroom"
+  },
+  {
+    id: "U01",
+    title: "Longitudinal Analysis of Chronic Wasting Disease in free-range White-tailed deer in Arkansas",
+    authors: "Lauren S Bennett, Nathaniel D Denkers, Jennifer R Ballard, Mark G Ruder, Michael J Chamberlain, and Candace K Mathiason",
+    body: "Chronic wasting disease (CWD) is a fatal neurodegenerative disease affecting cervids (deer, elk, moose) in North America, Europe, and Asia...",
+    funding: "National Institute of General Medical Sciences of the National Institutes of Health: T34GM140958",
+    presenter: { name: "Lauren Bennett", level: "Undergraduate Student", department: "Microbiology, Immunology, and Pathology" },
+    researchType: ResearchType.Foundational,
+    mentors: ["Nathaniel Denkers", "Candace Mathiason"],
+    affiliations: ["MARC T34", "Prion Research Center"],
+    presentationType: PresentationType.Poster,
+    presentationSlot: "Poster # U01",
+    location: "Grand Events Hall"
+  },
+  {
+    id: "Oral-2A-1",
+    title: "Simulated wildfire smoke exposure elicits an inflammatory and oxidative response in RAW264.7 macrophage and c57BL/6 mixed glia",
+    authors: "Sean Boland, Zachary Fields, Julie A Moreno, and Luke Montrose",
+    body: "Wildfire smoke (WFS) is a major source of ambient particulate matter (PM) exposure and has been associated with adverse respiratory and neurological outcomes...",
+    presenter: { name: "Sean Boland", level: "PhD Student", department: "Environmental & Radiological Health Sciences" },
+    researchType: ResearchType.Foundational,
+    mentors: ["Julie Moreno", "Luke Montrose"],
+    affiliations: [],
+    presentationType: PresentationType.Oral,
+    presentationSlot: "Session 2A, 1:45 – 2:00 pm",
+    location: "Boardroom"
+  },
+  {
+    id: "Oral-2B-1",
+    title: "Identification of biomarkers of heat-induced illness in military working dogs",
+    authors: "Susan M Gogolski, LR Leon, and Carol Wilusz",
+    body: "The purpose of the study was to identify circulating biomarkers of multi-organ injury in Military Working Dogs (MWDs) presented to the Holland Military Working Dog Veterinary Hospital...",
+    funding: "The Military Operational Medicine Research Program (MOMRP)",
+    presenter: { name: "Susan Gogolski", level: "MS Student", department: "Microbiology, Immunology, and Pathology" },
+    researchType: ResearchType.Clinical,
+    mentors: ["Carol Wilusz"],
+    affiliations: ["Young Investigators"],
+    presentationType: PresentationType.Oral,
+    presentationSlot: "Session 2B, 1:45 – 2:00 pm",
+    location: "Auditorium"
+  },
+  {
+    id: "9",
+    title: "Perceptions of the role of artificial intelligence in veterinary medical education and practice",
+    authors: "Hanna Badenhop and Katja Sutherland",
+    body: "Artificial intelligence (AI) has become ingrained in many facets of daily life. Recently, generative AI gained traction in veterinary medicine...",
+    presenter: { name: "Hannah Badenhop", level: "DVM Student", department: "Clinical Sciences" },
+    researchType: ResearchType.Social,
+    mentors: ["Katja Sutherland"],
+    affiliations: ["VSSP"],
+    presentationType: PresentationType.Poster,
+    presentationSlot: "Poster # 9",
+    location: "Grand Events Hall"
+  },
+  {
+    id: "16",
+    title: "Building a better swab: refining the test for M. bovis in American bison",
+    authors: "Paulina Bucaro, Christie Mayo, and Danielle Buttke",
+    body: "Mycoplasma bovis is a bacterium that has recently been categorized as a primary pathogen in American bison. It most commonly causes pneumonia...",
+    funding: "USDA grant",
+    presenter: { name: "Paulina Bucaro", level: "DVM Student", department: "Microbiology, Immunology, and Pathology" },
+    researchType: ResearchType.Foundational,
+    mentors: ["Christie Mayo", "Danielle Buttke"],
+    affiliations: ["VSSP", "Veterinary Diagnostic Laboratories"],
+    presentationType: PresentationType.Poster,
+    presentationSlot: "Poster # 16",
+    location: "Grand Events Hall"
+  }
+];
