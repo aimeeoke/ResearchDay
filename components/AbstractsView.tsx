@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, X } from 'lucide-react';
+import { Search, Filter, X, ChevronUp } from 'lucide-react';
 import { abstractsData } from '../data';
 import { Abstract, ResearchType } from '../types';
 
@@ -28,22 +28,55 @@ export default function AbstractsView({ onAbstractClick }: Props) {
     'Other'
   ];
 
-  // Curated mentor list
+  // Curated mentor list (alphabetized)
   const mentors = [
-    "A Russell Moore", "Abdullatif Alsulami", "Adam Chicco", "Adam Harris", "Alexander Brandl", "Amanda Woerman", "Amy MacNeill", "Ana Clara Bobadilla", "Andrea Oliver", "Andres Bonilla", "Angela Bosco-Lauth", "Anne Avery", "Ashley McGrew", "Barbara Wolfe", "Ben Giese", "Brad Borlee", "Brendan Podell", "Bret Smith", "Brian Foy", "Camille Torres-Henderson", "Candace Mathiason", "Carleigh Fedorka", "Carol Wilusz", "Carolina Mehaffy", "Caroline Kern-Allely", "Casey Gries", "Catriona MacPhail", "Christianne Magee", "Christie Mayo", "Christopher Kawcak", "Christopher Vaaga", "Claire de La Serre", "Claudia Wiese", "Colleen Duncan", "Dan Frazen", "Dan Regan", "Danielle Buttke", "Danielle Frey", "Dawit Tesfaye", "Debbie Lee", "Del Leary", "Delaney Worthington", "Donovan Anderson", "Douglas Thamm", "Drew Koch", "Elaine Carnevale", "Elissa Randall", "Elizabeth Arnett-Chin", "Emily Gallichotte", "Emily Perkins", "Emily Rout", "Erin McNulty", "Fiona Hollinshead", "Gary Luckasen", "Gayathriy Balamayooran", "Gregory Ebel", "James Larkin", "Jaret Pullen", "Jason Bleedorn", "Jason Lombard", "Jayne Aiken", "Jennifer Hatzel", "Jennifer Hawley", "Jennifer Peel", "Jenny Sones", "Jeremiah Easley", "Jessica Metcalf", "John Belisle", "Joseph Westrich", "Joshua Schaeffer", "Jozsef Vigh", "Julie Moreno", "Julien Guillaumin", "Kalani Williams", "Kapahi Kawai Puaa", "Karen Dobos", "Karen Fox", "Kat Forrest", "Kathryn Wotman", "Kathy Whitman", "Katie Seabaugh", "Katie Sikes", "Katja Sutherland", "Katriana Popichak", "Keara Boss", "Kelly Hall", "Kelly Santangelo", "Kelly Sullivan", "Kim Baker", "Kristin Zersen", "Laura Ashton", "Laura Pulscher", "Lauren Luedke", "Lauren Young", "Linda Dillenbeck", "Lori Kogan", "Lucas Argueso", "Luisa M. Nieto Ramirez", "Luke Bass", "Luke Montrose", "Lynn Pezzanite", "Mark Erickson", "Mark Stenglein", "Mark Zabel", "Marlis Rezende", "Matthew Jorgensen", "Mercedes Gonzalez-Juarrero", "Michael Lappin", "Michael Leibowitz", "Michelle Savran", "Miranda Sadar", "Mo Salman", "Morgan Valley", "Natalie Urie", "Nathaniel Denkers", "Nicole Kelp", "Noelia Altina", "Olivia Arnold", "Petra Cerna", "Philip Purdy", "Phillida Charley", "Purva Sanghvi", "Raissa Chunko", "Ralf Sudowe", "Raven McGann", "Raymond Goodrich", "Rebecca Makii", "Rebecca Niemiec", "Rebekah Kading", "Richard Bowen", "Richard McCosh", "Ron Tjalkens", "Rushika Perera", "Ryan Eastman", "Ryan Sadler", "Samantha Beeson", "Samantha Evans", "Sangeeta Rao", "Sarah Marvel", "Sarah Raabis", "Sarah Shropshire", "Sean Boland", "Seonil Kim", "Shari Lanning", "Sheryl Magzamen", "Stephanie McGrath", "Steven Dow", "Stuart Tobet", "Sue VandeWoude", "Susan Bailey", "Takamitsu Kato", "Tara Nordgren", "Thomas Johnson", "Tiffany Martin", "Tiffany Weir", "Tom LaRocca", "Tony Schountz", "Tracy Webb", "Treana Mayer", "Valeria Scorza", "Webb Craig", "William Brazile", "Yuichi Onda"
+    "A Russell Moore", "Abdullatif Alsulami", "Adam Chicco", "Adam Harris", "Alexander Brandl", 
+    "Amanda Woerman", "Amy MacNeill", "Ana Clara Bobadilla", "Andrea Oliver", "Andres Bonilla", 
+    "Angela Bosco-Lauth", "Anne Avery", "Ashley McGrew", "Barbara Wolfe", "Ben Giese", 
+    "Brad Borlee", "Brendan Podell", "Bret Smith", "Brian Foy", "Camille Torres-Henderson", 
+    "Candace Mathiason", "Carleigh Fedorka", "Carol Wilusz", "Carolina Mehaffy", "Caroline Kern-Allely", 
+    "Casey Gries", "Catriona MacPhail", "Christianne Magee", "Christie Mayo", "Christopher Kawcak", 
+    "Christopher Vaaga", "Claire de La Serre", "Claudia Wiese", "Colleen Duncan", "Dan Frazen", 
+    "Dan Regan", "Danielle Buttke", "Danielle Frey", "Dawit Tesfaye", "Debbie Lee", 
+    "Del Leary", "Delaney Worthington", "Donovan Anderson", "Douglas Thamm", "Drew Koch", 
+    "Elaine Carnevale", "Elissa Randall", "Elizabeth Arnett-Chin", "Emily Gallichotte", "Emily Perkins", 
+    "Emily Rout", "Erin McNulty", "Fiona Hollinshead", "Gary Luckasen", "Gayathriy Balamayooran", 
+    "Gregory Ebel", "James Larkin", "Jaret Pullen", "Jason Bleedorn", "Jason Lombard", 
+    "Jayne Aiken", "Jennifer Hatzel", "Jennifer Hawley", "Jennifer Peel", "Jenny Sones", 
+    "Jeremiah Easley", "Jessica Metcalf", "John Belisle", "Joseph Westrich", "Joshua Schaeffer", 
+    "Jozsef Vigh", "Julie Moreno", "Julien Guillaumin", "Kalani Williams", "Kapahi Kawai Puaa", 
+    "Karen Dobos", "Karen Fox", "Kat Forrest", "Kathryn Wotman", "Kathy Whitman", 
+    "Katie Seabaugh", "Katie Sikes", "Katja Sutherland", "Katriana Popichak", "Keara Boss", 
+    "Kelly Hall", "Kelly Santangelo", "Kelly Sullivan", "Kim Baker", "Kristin Zersen", 
+    "Laura Ashton", "Laura Pulscher", "Lauren Luedke", "Lauren Young", "Linda Dillenbeck", 
+    "Lori Kogan", "Lucas Argueso", "Luisa M. Nieto Ramirez", "Luke Bass", "Luke Montrose", 
+    "Lynn Pezzanite", "Mark Erickson", "Mark Stenglein", "Mark Zabel", "Marlis Rezende", 
+    "Matthew Jorgensen", "Mercedes Gonzalez-Juarrero", "Michael Lappin", "Michael Leibowitz", "Michelle Savran", 
+    "Miranda Sadar", "Mo Salman", "Morgan Valley", "Natalie Urie", "Nathaniel Denkers", 
+    "Nicole Kelp", "Noelia Altina", "Olivia Arnold", "Petra Cerna", "Philip Purdy", 
+    "Phillida Charley", "Purva Sanghvi", "Raissa Chunko", "Ralf Sudowe", "Raven McGann", 
+    "Raymond Goodrich", "Rebecca Makii", "Rebecca Niemiec", "Rebekah Kading", "Richard Bowen", 
+    "Richard McCosh", "Ron Tjalkens", "Rushika Perera", "Ryan Eastman", "Ryan Sadler", 
+    "Samantha Beeson", "Samantha Evans", "Sangeeta Rao", "Sarah Marvel", "Sarah Raabis", 
+    "Sarah Shropshire", "Sean Boland", "Seonil Kim", "Shari Lanning", "Sheryl Magzamen", 
+    "Stephanie McGrath", "Steven Dow", "Stuart Tobet", "Sue VandeWoude", "Susan Bailey", 
+    "Takamitsu Kato", "Tara Nordgren", "Thomas Johnson", "Tiffany Martin", "Tiffany Weir", 
+    "Tom LaRocca", "Tony Schountz", "Tracy Webb", "Treana Mayer", "Valeria Scorza", 
+    "Webb Craig", "William Brazile", "Yuichi Onda"
   ];
 
-  // Curated affiliation list
+  // Curated affiliation list (alphabetized)
   const affiliations = [
-    "ARBL", "Brain Research Center", "CCTSI T32", "Cardiovascular Research Center", "Center for Companion Animal Studies", "Center for Vector-Borne Infectious Diseases", "Equine Reproduction Laboratory", "Equine Research Laboratories", "Flint Animal Cancer Center", "IDRRTP T32", "IMSD T32", "Infectious Disease Research Center", "MAP ERC", "MARC T34", "MIP URF", "MSTP T32", "Mycobacteria Research Laboratories", "Mycobacterial Research Laboratories", "NIH T35", "Orthopaedic Research Center", "PREP", "Preclinical Surgical Research Lab", "Prion Research Center", "Program for Research in Immunology and Microbiology Education (PRIME)", "Research Innovation Center", "Translational Medicine Institute", "VSSP", "Veterinary Diagnostic Laboratories", "Young Investigators", "qCMB T32"
+    "ARBL", "Brain Research Center", "CCTSI T32", "Cardiovascular Research Center", 
+    "Center for Companion Animal Studies", "Center for Vector-Borne Infectious Diseases", 
+    "Equine Reproduction Laboratory", "Equine Research Laboratories", "Flint Animal Cancer Center", 
+    "IDRRTP T32", "IMSD T32", "Infectious Disease Research Center", "MAP ERC", "MARC T34", 
+    "MIP URF", "MSTP T32", "Mycobacteria Research Laboratories", "Mycobacterial Research Laboratories", 
+    "NIH T35", "Orthopaedic Research Center", "PREP", "Preclinical Surgical Research Lab", 
+    "Prion Research Center", "Program for Research in Immunology and Microbiology Education (PRIME)", 
+    "Research Innovation Center", "Translational Medicine Institute", "VSSP", 
+    "Veterinary Diagnostic Laboratories", "Young Investigators", "qCMB T32"
   ];
-
-  const options = useMemo(() => ({
-    departments,
-    researchTypes: Object.values(ResearchType),
-    mentors,
-    affiliations
-  }), []);
 
   const activeFilterCount = Object.values(filters).filter(Boolean).length;
 
@@ -52,14 +85,18 @@ export default function AbstractsView({ onAbstractClick }: Props) {
     setSearchTerm('');
   };
 
+  // Update individual filter
+  const updateFilter = (key: keyof typeof filters, value: string) => {
+    setFilters(prev => ({ ...prev, [key]: value }));
+  };
+
   const filteredAbstracts = useMemo(() => {
     return abstractsData.filter(abstract => {
-      // 1. Robust Search Logic
+      // 1. Search Logic
       const matchesSearch = (() => {
         if (!searchTerm) return true;
         const term = searchTerm.toLowerCase().trim();
         
-        // Normalize strings for flexible poster matching
         const normalize = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
         const slotNormalized = normalize(abstract.presentationSlot);
         const termNormalized = normalize(term);
@@ -72,7 +109,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
         return isTitleMatch || isPresenterMatch || isSlotMatch || isIdMatch;
       })();
 
-      // 2. Multi-category Filtering
+      // 2. Filter Logic
       const matchesDepartment = !filters.department || abstract.presenter.department === filters.department;
       const matchesType = !filters.researchType || abstract.researchType === filters.researchType;
       const matchesMentor = !filters.mentor || abstract.mentors.includes(filters.mentor);
@@ -90,7 +127,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
           <div className="relative flex-1">
             <input
               type="text"
-              placeholder="Search by title, presenter, or poster # (e.g. 'Poster 1')"
+              placeholder="Search by title, presenter, or poster #"
               className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#1E4D2B] focus:border-transparent shadow-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -125,7 +162,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
 
         {/* Filter Drawer */}
         {showFilters && (
-          <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200 animate-in fade-in slide-in-from-top-2">
+          <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200">
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
               
               <div className="space-y-1">
@@ -133,10 +170,10 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 <select
                   className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.department}
-                  onChange={(e) => setFilters(prev => ({ ...prev, department: e.target.value }))}
+                  onChange={(e) => updateFilter('department', e.target.value)}
                 >
                   <option value="">All Departments</option>
-                  {options.departments.map(d => <option key={d} value={d}>{d}</option>)}
+                  {departments.map(d => <option key={d} value={d}>{d}</option>)}
                 </select>
               </div>
 
@@ -145,10 +182,10 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 <select
                   className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.researchType}
-                  onChange={(e) => setFilters(prev => ({ ...prev, researchType: e.target.value }))}
+                  onChange={(e) => updateFilter('researchType', e.target.value)}
                 >
                   <option value="">All Research Types</option>
-                  {options.researchTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                  {Object.values(ResearchType).map(t => <option key={t} value={t}>{t}</option>)}
                 </select>
               </div>
 
@@ -157,10 +194,10 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 <select
                   className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.mentor}
-                  onChange={(e) => setFilters(prev => ({ ...prev, mentor: e.target.value }))}
+                  onChange={(e) => updateFilter('mentor', e.target.value)}
                 >
                   <option value="">All Mentors</option>
-                  {options.mentors.map(m => <option key={m} value={m}>{m}</option>)}
+                  {mentors.map(m => <option key={m} value={m}>{m}</option>)}
                 </select>
               </div>
 
@@ -169,35 +206,40 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 <select
                   className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.affiliation}
-                  onChange={(e) => setFilters(prev => ({ ...prev, affiliation: e.target.value }))}
+                  onChange={(e) => updateFilter('affiliation', e.target.value)}
                 >
                   <option value="">All Affiliations</option>
-                  {options.affiliations.map(a => <option key={a} value={a}>{a}</option>)}
+                  {affiliations.map(a => <option key={a} value={a}>{a}</option>)}
                 </select>
               </div>
             </div>
             
             <div className="flex justify-between items-center border-t border-gray-100 pt-3">
-              <span className="text-xs text-gray-500">
-                {activeFilterCount} filter{activeFilterCount !== 1 ? 's' : ''} active
-              </span>
               <button 
                 onClick={clearFilters}
                 className="text-sm font-medium text-[#1E4D2B] hover:text-[#153820] hover:underline transition-all"
               >
                 Reset all
               </button>
+              <button 
+                onClick={() => setShowFilters(false)}
+                className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-gray-800 bg-gray-100 px-3 py-1.5 rounded-lg"
+              >
+                <ChevronUp size={16} />
+                Close filters
+              </button>
             </div>
           </div>
         )}
       </div>
 
+      {/* Results Count */}
+      <p className="text-sm text-gray-500 font-medium px-1">
+        Showing {filteredAbstracts.length} of {abstractsData.length} abstracts
+      </p>
+
       {/* Abstract List */}
       <div className="space-y-4">
-        <p className="text-sm text-gray-500 font-medium px-1">
-          Showing {filteredAbstracts.length} result{filteredAbstracts.length !== 1 ? 's' : ''}
-        </p>
-        
         {filteredAbstracts.map((abstract) => (
           <div 
             key={abstract.id}
@@ -226,10 +268,14 @@ export default function AbstractsView({ onAbstractClick }: Props) {
             </div>
 
             <div className="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
-              <div className="flex items-center gap-1">
+              <div>
                 <span>
-                  Mentor{abstract.mentors.length > 1 ? 's' : ''}: {abstract.mentors.slice(0, 2).join(', ')}
-                  {abstract.mentors.length > 2 && <span> et al.</span>}
+                  {abstract.mentors.length === 1 
+                    ? `Mentor: ${abstract.mentors[0]}`
+                    : abstract.mentors.length === 2
+                    ? `Mentors: ${abstract.mentors[0]}, ${abstract.mentors[1]}`
+                    : `Mentors: ${abstract.mentors[0]}, ${abstract.mentors[1]} et al.`
+                  }
                 </span>
               </div>
               {abstract.location && (
