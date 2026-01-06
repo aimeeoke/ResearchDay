@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, X, ChevronUp } from 'lucide-react';
+import { Search, Filter, X } from 'lucide-react';
 import { abstractsData } from '../data';
 import { Abstract, ResearchType } from '../types';
 
@@ -19,7 +19,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
     affiliation: ''
   });
 
-  // Dynamically extract unique values for dropdowns from actual data
+  // Extract unique values for dropdowns - THIS IS THE KEY FIX
   const options = useMemo(() => {
     const depts = new Set<string>();
     const mentors = new Set<string>();
@@ -58,7 +58,13 @@ export default function AbstractsView({ onAbstractClick }: Props) {
         const slotNormalized = normalize(abstract.presentationSlot);
         const termNormalized = normalize(term);
         
+        // Special check: if searching for a number like "1", check if slot is "poster#1" or just "1"
+        // If term is "1", termNormalized is "1". slot "Poster # 1" -> "poster1".
+        // "poster1".includes("1") is true.
+        // If term is "poster 1", termNormalized is "poster1". "poster1".includes("poster1") is true.
         const isSlotMatch = slotNormalized.includes(termNormalized);
+
+        // Standard checks
         const isTitleMatch = abstract.title.toLowerCase().includes(term);
         const isPresenterMatch = abstract.presenter.name.toLowerCase().includes(term);
         const isIdMatch = abstract.id.toLowerCase().includes(term);
@@ -77,9 +83,9 @@ export default function AbstractsView({ onAbstractClick }: Props) {
   }, [searchTerm, filters]);
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-4 space-y-4">
       {/* Search and Filter Controls */}
-      <div className="bg-gray-50 pt-2 pb-4 space-y-3">
+      <div className="sticky top-0 bg-gray-50 pt-2 pb-2 z-10 space-y-3">
         <div className="flex gap-2">
           <div className="relative flex-1">
             <input
@@ -119,7 +125,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
 
         {/* Filter Drawer */}
         {showFilters && (
-          <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200">
+          <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200 animate-in fade-in slide-in-from-top-2">
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
               
               <div className="space-y-1">
@@ -192,55 +198,46 @@ export default function AbstractsView({ onAbstractClick }: Props) {
           Showing {filteredAbstracts.length} result{filteredAbstracts.length !== 1 ? 's' : ''}
         </p>
         
-        {filteredAbstracts.map((abstract) => {
-          // Safely extract values with fallbacks
-          const researchTypeLabel = abstract.researchType?.split(' ')[0] || 'Research';
-          const presenterName = abstract.presenter?.name || 'Unknown';
-          const presenterDept = abstract.presenter?.department || '';
-          const mentorList = abstract.mentors || [];
-          const firstMentor = mentorList[0] || 'Not specified';
-          
-          return (
-            <div 
-              key={abstract.id}
-              onClick={() => onAbstractClick(abstract)}
-              className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 active:scale-[0.99] transition-transform cursor-pointer hover:shadow-md"
-            >
-              <div className="flex justify-between items-start mb-2">
-                <span className={`px-2 py-1 rounded text-xs font-bold uppercase tracking-wide ${
-                  abstract.presentationType === 'Oral' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'
-                }`}>
-                  {abstract.presentationSlot || 'TBD'}
-                </span>
-                <span className="text-xs text-gray-500 font-medium bg-gray-100 px-2 py-1 rounded">
-                  {researchTypeLabel}
-                </span>
-              </div>
-              
-              <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
-                {abstract.title || 'Untitled'}
-              </h3>
-              
-              <div className="flex items-center text-sm text-gray-600 mb-1">
-                <span className="font-semibold text-[#1E4D2B] mr-2">{presenterName}</span>
-                <span className="text-gray-400">•</span>
-                <span className="ml-2 text-xs truncate">{presenterDept}</span>
-              </div>
-
-              <div className="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
-                <div className="flex items-center gap-1">
-                  <span>Mentor: {firstMentor}</span>
-                  {mentorList.length > 1 && <span> et al.</span>}
-                </div>
-                {abstract.location && (
-                  <span className="bg-orange-50 text-orange-700 px-2 py-0.5 rounded">
-                    {abstract.location}
-                  </span>
-                )}
-              </div>
+        {filteredAbstracts.map((abstract) => (
+          <div 
+            key={abstract.id}
+            onClick={() => onAbstractClick(abstract)}
+            className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 active:scale-[0.99] transition-transform cursor-pointer hover:shadow-md"
+          >
+            <div className="flex justify-between items-start mb-2">
+              <span className={`px-2 py-1 rounded text-xs font-bold uppercase tracking-wide ${
+                abstract.presentationType === 'Oral' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'
+              }`}>
+                {abstract.presentationSlot}
+              </span>
+              <span className="text-xs text-gray-500 font-medium bg-gray-100 px-2 py-1 rounded">
+                {abstract.researchType.split(' ')[0]}
+              </span>
             </div>
-          );
-        })}
+            
+            <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
+              {abstract.title}
+            </h3>
+            
+            <div className="flex items-center text-sm text-gray-600 mb-1">
+              <span className="font-semibold text-[#1E4D2B] mr-2">{abstract.presenter.name}</span>
+              <span className="text-gray-400">•</span>
+              <span className="ml-2 text-xs truncate">{abstract.presenter.department}</span>
+            </div>
+
+            <div className="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
+              <div className="flex items-center gap-1">
+                <span>Mentor: {abstract.mentors[0]}</span>
+                {abstract.mentors.length > 1 && <span> et al.</span>}
+              </div>
+              {abstract.location && (
+                <span className="bg-orange-50 text-orange-700 px-2 py-0.5 rounded">
+                  {abstract.location}
+                </span>
+              )}
+            </div>
+          </div>
+        ))}
 
         {filteredAbstracts.length === 0 && (
           <div className="text-center py-12">
