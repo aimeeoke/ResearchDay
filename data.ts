@@ -2514,7 +2514,7 @@ export const abstractsData: Abstract[] = [
     presenter: { name: "Kristen Sack", level: "DVM Student", department: "Clinical Sciences" },
     researchType: ResearchType.Clinical,
     mentors: ["Andres Bonilla", "Jeremiah Easley"],
-    affiliations: ["Preclincal Surgical Research Lab"],
+    affiliations: ["Preclinical Surgical Research Lab"],
     presentationType: PresentationType.Poster,
     presentationSlot: "122",
     location: "1:45 - 3:45"
@@ -2528,7 +2528,7 @@ export const abstractsData: Abstract[] = [
     presenter: { name: "Andrea Sanchez-Hidalgo", level: "PhD Student", department: "Microbiology, Immunology, and Pathology" },
     researchType: ResearchType.Foundational,
     mentors: ["Mercedes Gonzalez-Juarrero"],
-    affiliations: ["Mycobacteria Research Laboratories;"],
+    affiliations: ["Mycobacteria Research Laboratories"],
     presentationType: PresentationType.Poster,
     presentationSlot: "123",
     location: "11:30 - 1:30"
@@ -2926,7 +2926,7 @@ export const abstractsData: Abstract[] = [
     presenter: { name: "Kianna Walz", level: "Undergraduate Student", department: "Other" },
     researchType: ResearchType.Translational,
     mentors: ["Carleigh Fedorka"],
-    affiliations: ["Equine Research Laboratories"],
+    affiliations: ["Equine Reproduction Laboratories"],
     presentationType: PresentationType.Poster,
     presentationSlot: "U47",
     location: "10:15 - 11:15"
@@ -2968,7 +2968,7 @@ export const abstractsData: Abstract[] = [
     presenter: { name: "Shae Wheeler", level: "PhD Student", department: "Microbiology, Immunology, and Pathology" },
     researchType: ResearchType.Foundational,
     mentors: ["John Belisle", "Karen Dobos"],
-    affiliations: ["IMSD T32", "Mycobacterial Research Laboratories", "Translational Medicine Institute"],
+    affiliations: ["IMSD T32", "Mycobacteria Research Laboratories", "Translational Medicine Institute"],
     presentationType: PresentationType.Poster,
     presentationSlot: "140",
     location: "1:45 - 3:45"
