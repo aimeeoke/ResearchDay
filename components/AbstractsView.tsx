@@ -46,14 +46,9 @@ export default function AbstractsView({ onAbstractClick }: Props) {
     setSearchTerm('');
   };
 
-  // Update individual filter
-  const updateFilter = (key: keyof typeof filters, value: string) => {
-    setFilters(prev => ({ ...prev, [key]: value }));
-  };
-
   const filteredAbstracts = useMemo(() => {
     return abstractsData.filter(abstract => {
-      // 1. Search Logic
+      // 1. Robust Search Logic
       const matchesSearch = (() => {
         if (!searchTerm) return true;
         const term = searchTerm.toLowerCase().trim();
@@ -71,7 +66,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
         return isTitleMatch || isPresenterMatch || isSlotMatch || isIdMatch;
       })();
 
-      // 2. Filter Logic
+      // 2. Multi-category Filtering
       const matchesDepartment = !filters.department || abstract.presenter.department === filters.department;
       const matchesType = !filters.researchType || abstract.researchType === filters.researchType;
       const matchesMentor = !filters.mentor || abstract.mentors.includes(filters.mentor);
@@ -89,7 +84,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
           <div className="relative flex-1">
             <input
               type="text"
-              placeholder="Search by title, presenter, or poster #"
+              placeholder="Search by title, presenter, or poster # (e.g. 'Poster 1')"
               className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#1E4D2B] focus:border-transparent shadow-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -124,7 +119,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
 
         {/* Filter Drawer */}
         {showFilters && (
-          <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200">
+          <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200 animate-in fade-in slide-in-from-top-2">
             <div className="grid sm:grid-cols-2 gap-4 mb-4">
               
               <div className="space-y-1">
@@ -132,7 +127,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 <select
                   className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.department}
-                  onChange={(e) => updateFilter('department', e.target.value)}
+                  onChange={(e) => setFilters(prev => ({ ...prev, department: e.target.value }))}
                 >
                   <option value="">All Departments</option>
                   {options.departments.map(d => <option key={d} value={d}>{d}</option>)}
@@ -144,7 +139,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 <select
                   className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.researchType}
-                  onChange={(e) => updateFilter('researchType', e.target.value)}
+                  onChange={(e) => setFilters(prev => ({ ...prev, researchType: e.target.value }))}
                 >
                   <option value="">All Research Types</option>
                   {options.researchTypes.map(t => <option key={t} value={t}>{t}</option>)}
@@ -156,7 +151,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 <select
                   className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.mentor}
-                  onChange={(e) => updateFilter('mentor', e.target.value)}
+                  onChange={(e) => setFilters(prev => ({ ...prev, mentor: e.target.value }))}
                 >
                   <option value="">All Mentors</option>
                   {options.mentors.map(m => <option key={m} value={m}>{m}</option>)}
@@ -168,7 +163,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 <select
                   className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.affiliation}
-                  onChange={(e) => updateFilter('affiliation', e.target.value)}
+                  onChange={(e) => setFilters(prev => ({ ...prev, affiliation: e.target.value }))}
                 >
                   <option value="">All Affiliations</option>
                   {options.affiliations.map(a => <option key={a} value={a}>{a}</option>)}
@@ -177,31 +172,26 @@ export default function AbstractsView({ onAbstractClick }: Props) {
             </div>
             
             <div className="flex justify-between items-center border-t border-gray-100 pt-3">
+              <span className="text-xs text-gray-500">
+                {activeFilterCount} filter{activeFilterCount !== 1 ? 's' : ''} active
+              </span>
               <button 
                 onClick={clearFilters}
                 className="text-sm font-medium text-[#1E4D2B] hover:text-[#153820] hover:underline transition-all"
               >
                 Reset all
               </button>
-              <button 
-                onClick={() => setShowFilters(false)}
-                className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-gray-800 bg-gray-100 px-3 py-1.5 rounded-lg"
-              >
-                <ChevronUp size={16} />
-                Close filters
-              </button>
             </div>
           </div>
         )}
       </div>
 
-      {/* Results Count */}
-      <p className="text-sm text-gray-500 font-medium px-1">
-        Showing {filteredAbstracts.length} of {abstractsData.length} abstracts
-      </p>
-
       {/* Abstract List */}
       <div className="space-y-4">
+        <p className="text-sm text-gray-500 font-medium px-1">
+          Showing {filteredAbstracts.length} result{filteredAbstracts.length !== 1 ? 's' : ''}
+        </p>
+        
         {filteredAbstracts.map((abstract) => (
           <div 
             key={abstract.id}
@@ -230,15 +220,9 @@ export default function AbstractsView({ onAbstractClick }: Props) {
             </div>
 
             <div className="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
-              <div>
-                <span>
-                  {abstract.mentors.length === 1 
-                    ? `Mentor: ${abstract.mentors[0]}`
-                    : abstract.mentors.length === 2
-                    ? `Mentors: ${abstract.mentors[0]}, ${abstract.mentors[1]}`
-                    : `Mentors: ${abstract.mentors[0]}, ${abstract.mentors[1]} et al.`
-                  }
-                </span>
+              <div className="flex items-center gap-1">
+                <span>Mentor: {abstract.mentors[0]}</span>
+                {abstract.mentors.length > 1 && <span> et al.</span>}
               </div>
               {abstract.location && (
                 <span className="bg-orange-50 text-orange-700 px-2 py-0.5 rounded">
