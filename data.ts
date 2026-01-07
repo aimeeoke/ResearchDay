@@ -8,9 +8,9 @@ export const scheduleData: ScheduleEvent[] = [
   { time: "11:30 – 1:30 pm", title: "Session I", description: "Oral Session 1A: Foundational Science (Auditorium)\nOral Session 2A: Translational Science (Boardroom)\nPoster Session 1: Odd Numbers (Grand Events Hall)", type: 'session' },
   { time: "1:30 – 1:45 pm", title: "Break", description: "Remove odd posters, hang even posters", type: 'break' },
   { time: "1:45 – 3:45 pm", title: "Session II", description: "Oral Session 2A: Foundational Science (Boardroom)\nOral Session 2B: Translational Science (Auditorium)\nPoster Session 2: Even Numbers (Grand Events Hall)", type: 'session' },
-  { time: "3:45 – 4:15 pm", title: "Refreshments & Desserts", description: "Remove all posters", type: 'social' },
-  { time: "4:15 – 5:00 pm", title: "Research Day Keynote", type: 'general' },
-  { time: "5:00 – 5:30 pm", title: "Awards Ceremony", type: 'social' },
+  { time: "3:45 – 4:15 pm", title: "Refreshments & Desserts", location: "Grand Events Hall", description: "Remove all posters", type: 'social' },
+  { time: "4:15 – 5:00 pm", title: "Research Day Keynote", location: "Grand Events Hall", type: 'general' },
+  { time: "5:00 – 5:30 pm", title: "Awards Ceremony", location: "Grand Events Hall", type: 'social' },
 ];
 
 export const sponsorsData: Sponsor[] = [
