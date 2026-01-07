@@ -30,6 +30,10 @@ export default function App() {
     setSelectedAbstract(null);
   };
 
+  const toggleFilters = () => {
+    setShowFilters(prev => !prev);
+  };
+
   return (
     <div className="flex flex-col h-screen bg-gray-50 text-gray-800">
       {/* Header */}
@@ -67,7 +71,7 @@ export default function App() {
                   searchTerm={searchTerm}
                   setSearchTerm={setSearchTerm}
                   showFilters={showFilters}
-                  setShowFilters={setShowFilters}
+                  toggleFilters={toggleFilters}
                   filters={filters}
                   setFilters={setFilters}
               />
