@@ -16,8 +16,7 @@ export default function AbstractDetail({ abstract }: Props) {
           <div className="space-y-4 border-b border-gray-100 pb-6">
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1 bg-[#1E4D2B] text-white text-sm font-bold rounded-full">
-                {abstract.presentationType === 'Poster' ? `Poster #${abstract.presentationSlot}` :
-         +`Oral ${abstract.presentationSlot}`}
+                {abstract.presentationType === 'Poster' ? `Poster #${abstract.presentationSlot}` : `Oral ${abstract.presentationSlot}`}
               </span>
               <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-full">
                 {abstract.researchType}
