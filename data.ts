@@ -1287,9 +1287,9 @@ export const abstractsData: Abstract[] = [
   },
   {
     id: "65",
-    title: "",
-    authors: "",
-    body: "",
+    title: "Optimization of Electroporation Parameters and Target Sequence for CRISPR-Cas9-Mediated Keap1 Gene Editing in Bovine Embryos",
+    authors: "Emilio Gutierrez-Castillo, Ahmed Gad, Ghyslaine Ramirez, and Dawit Tesfaye",
+    body: "Genome editing in livestock allows the improvement of desirable traits and the development of research models within short generational intervals. The CRISPR-Cas9 genome editing system is a versatile and highly specific tool; however, its efficiency depends on the effective delivery of the CRISPR-Cas9 components into embryos. Targeting Keap1 is of particular interest because its disruption is expected to increase Nrf2 availability and improve antioxidant responses, potentially improving embryo resilience to oxidative stress during in vitro culture. We hypothesized that electroporation would allow efficient CRISPR-Cas9 delivery into bovine zygotes and generate high Keap1 editing rates without compromising embryo development. Cumulus-oocyte complexes were in vitro matured for 22 hours and then fertilized. At 10 hours post-insemination, presumptive zygotes (PZs) were denuded and electroporated in a 1 mm electrode gap slide using either 15V or 20V (5 pulses, 3 ms duration, 100 ms intervals). Three sgRNAs targeting exon 2 of Keap1 were individually complexed with Cas9 (200 ng/µL Cas9, 100 ng/µL sgRNA). Following electroporation, PZs were cultured for 7 days at 38.5 °C, 5% CO2, and 5% O2. Control groups included non-electroporated PZs and PZs electroporated without sgRNA. Resulting blastocysts were Sanger-sequenced to determine editing efficiency and indel type using the ICE tool. Fisher Exact Test (α = 0.05) results revealed no difference in blastocyst rates between the control (24.0 %) and the 15V (18.01%) groups (P-value = 0.22), suggesting that 15V did not impair development. However, 20V significantly reduced blastocyst formation (7.07%) compared to the other treatments (P-value <0.01). ICE analysis demonstrated that 29 out of the 30 embryos sequenced were edited, with sgRNA-3 producing the highest proportion of fully edited embryos (60% at 15V; 100% at 20V). These findings suggest that electroporation is an efficient method for CRISPR-Cas9 delivery into bovine zygotes to generate fully edited embryos.",
     presenter: { name: "Emilio Gutierrez Castillo", level: "Post-Doc", department: "Other" },
     researchType: ResearchType.Foundational,
     mentors: ["Dawit Tesfaye"],
