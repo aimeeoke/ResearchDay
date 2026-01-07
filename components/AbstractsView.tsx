@@ -94,7 +94,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
           <div className="relative flex-1">
             <input
               type="text"
-              placeholder="Search by title, presenter, or poster # (e.g. 'Poster 1')"
+              placeholder="Search by title, presenter, or presentation #"
               className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#1E4D2B] focus:border-transparent shadow-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
