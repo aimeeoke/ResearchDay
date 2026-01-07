@@ -3,17 +3,10 @@ import { Home, Calendar, Users, Info, ChevronLeft } from 'lucide-react';
 import AbstractsView from './components/AbstractsView';
 import ScheduleView from './components/ScheduleView';
 import SponsorsView from './components/SponsorsView';
-import { Abstract } from './types';
+import { Abstract, AbstractFilters } from './types';
 import AbstractDetail from './components/AbstractDetail';
 
 type View = 'abstracts' | 'schedule' | 'sponsors';
-
-export interface AbstractFilters {
-  department: string;
-  researchType: string;
-  mentor: string;
-  affiliation: string;
-}
 
 export default function App() {
   const [currentView, setCurrentView] = useState<View>('abstracts');
