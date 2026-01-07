@@ -8,7 +8,7 @@ interface Props {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   showFilters: boolean;
-  setShowFilters: (show: boolean) => void;
+  toggleFilters: () => void;
   filters: AbstractFilters;
   setFilters: React.Dispatch<React.SetStateAction<AbstractFilters>>;
 }
@@ -18,6 +18,7 @@ export default function AbstractsView({
   searchTerm,
   setSearchTerm,
   showFilters,
+  toggleFilters,
   filters,
   setFilters
  }: Props) { 
@@ -113,7 +114,7 @@ export default function AbstractsView({
             )}
           </div>
           <button
-            onClick={() => setShowFilters(!showFilters)}
+            onClick={toggleFilters}
             className={`px-4 rounded-lg border shadow-sm flex items-center gap-2 transition-colors ${
               showFilters || activeFilterCount > 0
                 ? 'bg-[#1E4D2B] text-white border-[#1E4D2B]'
