@@ -16,7 +16,8 @@ export default function AbstractsView({ onAbstractClick }: Props) {
     department: '',
     researchType: '',
     mentor: '',
-    affiliation: ''
+    affiliation: '',
+    presentationType: ''
   });
 
   // Extract unique values for dropdowns - THIS IS THE KEY FIX
@@ -82,6 +83,15 @@ export default function AbstractsView({ onAbstractClick }: Props) {
       const matchesMentor = !filters.mentor || abstract.mentors.includes(filters.mentor);
       const matchesAffiliation = !filters.affiliation || abstract.affiliations.includes(filters.affiliation);
 
+      // Presentation type filter (Oral, Poster, Undergraduate Poster)
+      const matchesPresentationType = (() => {
+        if (!filters.presentationType) return true;
+        if (filters.presentationType === 'Oral') return abstract.presentationType === 'Oral';
+        if (filters.presentationType === 'Poster') return abstract.presentationType === 'Poster' && !abstract.presentationSlot.startsWith('U');
+        if (filters.presentationType === 'Undergraduate') return abstract.presentationType === 'Poster' && abstract.presentationSlot.startsWith('U');
+        return true;
+      })();
+      
       return matchesSearch && matchesDepartment && matchesType && matchesMentor && matchesAffiliation;
     });
   }, [searchTerm, filters]);
@@ -179,15 +189,13 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                   {options.affiliations.map(a => <option key={a} value={a}>{a}</option>)}
                 </select>
               </div>
+              
               <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase
-                tracking-wide">Presentation Type</label>
+                <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Presentation Type</label>
                 <select
-                  className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1
-                  focus:ring-[#1E4D2B] bg-white"
+                  className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
                   value={filters.presentationType}
-                  onChange={(e) => setFilters(prev => ({ ...prev, presentationType: e.target.value
-          +}))}
+                  onChange={(e) => setFilters(prev => ({ ...prev, presentationType: e.target.value }))}
                   >
                   <option value="">All Presentations</option>
                   <option value="Oral">Oral</option>
