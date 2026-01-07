@@ -84,13 +84,22 @@ export default function AbstractsView({ onAbstractClick }: Props) {
       const matchesAffiliation = !filters.affiliation || abstract.affiliations.includes(filters.affiliation);
 
       // Presentation type filter (Oral, Poster, Undergraduate Poster)
+      // Determine Presentation category based on slot format:
+      // - Oral: contains A or B (e.g., "1A-1", "2B-3")
+      // - Undergraduate: starts with U (e.g., "U01")
+      // - Poster: numeric only (e.g., "1", "45")
+      const slot = abstract.presentationSlot;
+      const isOral = /[AB]/.test(slot);
+      const isUndergrad = slot.startsWith('U');
+      const isPoster = !isOral && !isUndergrad;
+
       let matchesPresentationType = true;
         if (filters.presentationType === 'Oral') {
-          matchesPresentationType = abstract.presentationType === PresentationType.Oral;
+          matchesPresentationType = isOral;
         } else if (filters.presentationType === 'Poster') {
-          matchesPresentationType = abstract.presentationType === PresentationType.Poster && !abstract.presentationSlot.startsWith('U');
+          matchesPresentationType = isPoster;
         } else if (filters.presentationType === 'Undergraduate') {
-          matchesPresentationType = abstract.presentationType === PresentationType.Poster && abstract.presentationSlot.startsWith('U');
+          matchesPresentationType = isUndergrad;
         }
       
       return matchesSearch && matchesDepartment && matchesType && matchesMentor && matchesAffiliation;
