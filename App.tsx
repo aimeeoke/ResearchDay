@@ -8,10 +8,27 @@ import AbstractDetail from './components/AbstractDetail';
 
 type View = 'abstracts' | 'schedule' | 'sponsors';
 
+export interface AbstractFilters {
+  department: string;
+  researchType: string;
+  mentor: string;
+  affiliation: string;
+}
+
 export default function App() {
   const [currentView, setCurrentView] = useState<View>('abstracts');
   const [selectedAbstract, setSelectedAbstract] = useState<Abstract | null>(null);
 
+// Filter state lifted from AbstractsView so it persists when viewing details
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showFilters, setShowFilters] = useState(false);
+  const [filters, setFilters] = useState<AbstractFilters>({
+    department: '',
+    researchType: '',
+    mentor: '',
+    affiliation: ''
+  });
+  
   const handleAbstractClick = (abstract: Abstract) => {
     setSelectedAbstract(abstract);
   };
@@ -51,7 +68,18 @@ export default function App() {
             <AbstractDetail abstract={selectedAbstract} />
           ) : (
             <>
-              {currentView === 'abstracts' && <AbstractsView onAbstractClick={handleAbstractClick} />}
+              {currentView === 'abstracts' && (
+                <AbstractsView
+                  onAbstractClick={handleAbstractClick}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                  showFilters={showFilters}
+                  setShowFilters={setShowFilters}
+                  filters={filters}
+                  setFilters={setFilters}
+              />
+          )}         
+              
               {currentView === 'schedule' && <ScheduleView />}
               {currentView === 'sponsors' && <SponsorsView />}
             </>
