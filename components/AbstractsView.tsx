@@ -179,6 +179,22 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                   {options.affiliations.map(a => <option key={a} value={a}>{a}</option>)}
                 </select>
               </div>
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-gray-500 uppercase
+                tracking-wide">Presentation Type</label>
+                <select
+                  className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1
+                  focus:ring-[#1E4D2B] bg-white"
+                  value={filters.presentationType}
+                  onChange={(e) => setFilters(prev => ({ ...prev, presentationType: e.target.value
+          +}))}
+                  >
+                  <option value="">All Presentations</option>
+                  <option value="Oral">Oral</option>
+                  <option value="Poster">Poster</option>
+                  <option value="Undergraduate">Undergraduate Poster</option>
+                </select>
+              </div>
             </div>
             
             <div className="flex justify-between items-center border-t border-gray-100 pt-3">
