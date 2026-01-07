@@ -1,6 +1,7 @@
 # CVMBS Research Day 2026
 
 A mobile-friendly web app for Colorado State University's College of Veterinary Medicine and Biomedical Sciences annual Research Day event.
+View the app at https://researchday.vercel.app/
 
 ## About
 
