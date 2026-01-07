@@ -1,20 +1,27 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# CVMBS Research Day 2026
 
-# Run and deploy your AI Studio app
+A mobile-friendly web app for Colorado State University's College of Veterinary Medicine and Biomedical Sciences annual Research Day event.
 
-This contains everything you need to run your app locally.
+## About
 
-View your app in AI Studio: https://ai.studio/apps/drive/1vcD5YxKm86dTJJeQih7bmES637mQwGs_
+This app replaces traditional printed proceedings, giving attendees easy access to:
+- **Abstracts** – searchable and filterable by category
+- **Schedule** – session times and locations
+- **Sponsors** – recognition for event supporters
 
-## Run Locally
+Built to be accessible on any device during the event.
 
-**Prerequisites:**  Node.js
+## Tech Stack
 
+- [Next.js](https://nextjs.org/)
+- Deployed on [Vercel](https://vercel.com/)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Author
+
+**Aimee Oke**  
+Associate Director of Research, CVMBS  
+Colorado State University
+
+---
+
+*Built by a research administrator, not a software developer—proof that anyone can create tools for their community.*
