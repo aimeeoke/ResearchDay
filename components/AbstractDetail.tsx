@@ -1,6 +1,6 @@
 import React from 'react';
 import { Abstract } from '../types';
-import { MapPin, Clock, User, Users, GraduationCap, Building2 } from 'lucide-react';
+import { MapPin, User, Users, GraduationCap, Building2 } from 'lucide-react';
 
 interface Props {
   abstract: Abstract;
