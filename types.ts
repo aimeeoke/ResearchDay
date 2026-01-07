@@ -46,3 +46,10 @@ export interface Sponsor {
   url: string;
   logo?: string; // Optional URL/path for logo image
 }
+
+export interface AbstractFilters {
+  department: string;
+  researchType: string;
+  mentor: string;
+  affiliation: string,
+}
