@@ -47,7 +47,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
   const activeFilterCount = Object.values(filters).filter(Boolean).length;
 
   const clearFilters = () => {
-    setFilters({ department: '', researchType: '', mentor: '', affiliation: '' });
+    setFilters({ department: '', researchType: '', mentor: '', affiliation: '', presentationType: '' });
     setSearchTerm('');
   };
 
