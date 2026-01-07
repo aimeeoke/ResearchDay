@@ -231,8 +231,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
 
             <div className="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
               <div className="flex items-center gap-1">
-                <span>Mentor: {abstract.mentors[0]}</span>
-                {abstract.mentors.length > 1 && <span> et al.</span>}
+                <span>Mentor: {abstract.mentors.join(' & ')}</span>
               </div>
               {abstract.location && (
                 <span className="bg-orange-50 text-orange-700 px-2 py-0.5 rounded">
