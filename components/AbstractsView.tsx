@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import { abstractsData } from '../data';
-import { Abstract, ResearchType } from '../types';
-import { AbstractFilters } from '../App';
+import { Abstract, ResearchType, AbstractFilters } from '../types';
 
 interface Props {
   onAbstractClick: (abstract: Abstract) => void;
