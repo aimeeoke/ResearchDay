@@ -36,10 +36,10 @@ export default function AbstractsView({ onAbstractClick }: Props) {
       departments: Array.from(depts).sort(),
       researchTypes: Object.values(ResearchType),
       mentors: Array.from(mentors).sort((a, b) => {
-      38 +        const lastNameA = a.split(' ').pop() || a;
-      39 +        const lastNameB = b.split(' ').pop() || b;
-      40 +        return lastNameA.localeCompare(lastNameB);
-      41 +      }),
+        const lastNameA = a.split(' ').pop() || a;
+        const lastNameB = b.split(' ').pop() || b;
+        return lastNameA.localeCompare(lastNameB);
+      }),
       affiliations: Array.from(affiliations).sort()
     };
   }, []);
