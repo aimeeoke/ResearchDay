@@ -84,13 +84,14 @@ export default function AbstractsView({ onAbstractClick }: Props) {
       const matchesAffiliation = !filters.affiliation || abstract.affiliations.includes(filters.affiliation);
 
       // Presentation type filter (Oral, Poster, Undergraduate Poster)
-      const matchesPresentationType = (() => {
-        if (!filters.presentationType) return true;
-        if (filters.presentationType === 'Oral') return abstract.presentationType === 'Oral';
-        if (filters.presentationType === 'Poster') return abstract.presentationType === 'Poster' && !abstract.presentationSlot.startsWith('U');
-        if (filters.presentationType === 'Undergraduate') return abstract.presentationType === 'Poster' && abstract.presentationSlot.startsWith('U');
-        return true;
-      })();
+      let matchesPresentationType = true;
+        if (filters.presentationType === 'Oral') {
+          matchesPresentationType = abstract.presentationType === 'Oral';
+        } else if (filters.presentationType === 'Poster') {
+          matchesPresentationType = abstract.presentationType === 'Poster' && !abstract.presentationSlot.startsWith('U');
+        } else if (filters.presentationType === 'Undergraduate') {
+          matchesPresentationType = abstract.presentationType === 'Poster' && abstract.presentationSlot.startsWith('U');
+        }
       
       return matchesSearch && matchesDepartment && matchesType && matchesMentor && matchesAffiliation;
     });
