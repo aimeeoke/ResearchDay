@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import { abstractsData } from '../data';
-import { Abstract, ResearchType } from '../types';
+import { Abstract, ResearchType, PresentationType } from '../types';
 
 interface Props {
   onAbstractClick: (abstract: Abstract) => void;
@@ -86,11 +86,11 @@ export default function AbstractsView({ onAbstractClick }: Props) {
       // Presentation type filter (Oral, Poster, Undergraduate Poster)
       let matchesPresentationType = true;
         if (filters.presentationType === 'Oral') {
-          matchesPresentationType = abstract.presentationType === 'Oral';
+          matchesPresentationType = abstract.presentationType === PresentationType.Oral;
         } else if (filters.presentationType === 'Poster') {
-          matchesPresentationType = abstract.presentationType === 'Poster' && !abstract.presentationSlot.startsWith('U');
+          matchesPresentationType = abstract.presentationType === PresentationType.Poster && !abstract.presentationSlot.startsWith('U');
         } else if (filters.presentationType === 'Undergraduate') {
-          matchesPresentationType = abstract.presentationType === 'Poster' && abstract.presentationSlot.startsWith('U');
+          matchesPresentationType = abstract.presentationType === PresentationType.Poster && abstract.presentationSlot.startsWith('U');
         }
       
       return matchesSearch && matchesDepartment && matchesType && matchesMentor && matchesAffiliation;
