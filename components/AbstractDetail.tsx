@@ -34,12 +34,6 @@ export default function AbstractDetail({ abstract }: Props) {
                   <span>{abstract.location}</span>
                 </div>
               )}
-              {abstract.presentationType === 'Oral' && (
-                <div className="flex items-center gap-2">
-                  <Clock size={16} className="text-[#C8C372]" />
-                  <span>Check schedule for exact time</span>
-                </div>
-              )}
             </div>
           </div>
 
