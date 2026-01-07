@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import { abstractsData } from '../data';
-import { Abstract, ResearchType, PresentationType } from '../types';
+import { Abstract, ResearchType } from '../types';
 
 interface Props {
   onAbstractClick: (abstract: Abstract) => void;
@@ -16,8 +16,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
     department: '',
     researchType: '',
     mentor: '',
-    affiliation: '',
-    presentationType: ''
+    affiliation: ''
   });
 
   // Extract unique values for dropdowns - THIS IS THE KEY FIX
@@ -47,7 +46,7 @@ export default function AbstractsView({ onAbstractClick }: Props) {
   const activeFilterCount = Object.values(filters).filter(Boolean).length;
 
   const clearFilters = () => {
-    setFilters({ department: '', researchType: '', mentor: '', affiliation: '', presentationType: '' });
+    setFilters({ department: '', researchType: '', mentor: '', affiliation: '' });
     setSearchTerm('');
   };
 
@@ -82,25 +81,6 @@ export default function AbstractsView({ onAbstractClick }: Props) {
       const matchesType = !filters.researchType || abstract.researchType === filters.researchType;
       const matchesMentor = !filters.mentor || abstract.mentors.includes(filters.mentor);
       const matchesAffiliation = !filters.affiliation || abstract.affiliations.includes(filters.affiliation);
-
-      // Presentation type filter (Oral, Poster, Undergraduate Poster)
-      // Determine Presentation category based on slot format:
-      // - Oral: contains A or B (e.g., "1A-1", "2B-3")
-      // - Undergraduate: starts with U (e.g., "U01")
-      // - Poster: numeric only (e.g., "1", "45")
-      const slot = abstract.presentationSlot;
-      const isOral = /[AB]/.test(slot);
-      const isUndergrad = slot.startsWith('U');
-      const isPoster = !isOral && !isUndergrad;
-
-      let matchesPresentationType = true;
-        if (filters.presentationType === 'Oral') {
-          matchesPresentationType = isOral;
-        } else if (filters.presentationType === 'Poster') {
-          matchesPresentationType = isPoster;
-        } else if (filters.presentationType === 'Undergraduate') {
-          matchesPresentationType = isUndergrad;
-        }
       
       return matchesSearch && matchesDepartment && matchesType && matchesMentor && matchesAffiliation;
     });
@@ -197,20 +177,6 @@ export default function AbstractsView({ onAbstractClick }: Props) {
                 >
                   <option value="">All Affiliations</option>
                   {options.affiliations.map(a => <option key={a} value={a}>{a}</option>)}
-                </select>
-              </div>
-              
-              <div className="space-y-1">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Presentation Type</label>
-                <select
-                  className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
-                  value={filters.presentationType}
-                  onChange={(e) => setFilters(prev => ({ ...prev, presentationType: e.target.value }))}
-                  >
-                  <option value="">All Presentations</option>
-                  <option value="Oral">Oral</option>
-                  <option value="Poster">Poster</option>
-                  <option value="Undergraduate">Undergraduate Poster</option>
                 </select>
               </div>
             </div>
