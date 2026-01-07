@@ -1,23 +1,27 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import { abstractsData } from '../data';
 import { Abstract, ResearchType } from '../types';
+import { AbstractFilters } from ../App';
 
 interface Props {
   onAbstractClick: (abstract: Abstract) => void;
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  showFilters: boolean;
+  setShowFilters: (show: boolean) => void;
+  filters: AbstractFilters;
+  setFilters: React.Dispatch<React.SetStateAction<AbstractFilters>>;
 }
 
-export default function AbstractsView({ onAbstractClick }: Props) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showFilters, setShowFilters] = useState(false);
-  
-  // Multi-select filter state
-  const [filters, setFilters] = useState({
-    department: '',
-    researchType: '',
-    mentor: '',
-    affiliation: ''
-  });
+export default function AbstractsView({
+  onAbstractClick,
+  searchTerm,
+  setSearchTerm,
+  showFilters,
+  filters,
+  setFilters
+ }: Props) { 
 
   // Extract unique values for dropdowns - THIS IS THE KEY FIX
   const options = useMemo(() => {
