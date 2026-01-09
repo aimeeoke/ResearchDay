@@ -1092,6 +1092,20 @@ export const abstractsData: Abstract[] = [
     presentationSlot: "58",
     location: "1:45 - 3:45"
   },
+    {
+    id: "11",
+    title: "Expansion of Scientist Spotlights in the Online Graduate Classroom",
+    authors: "Gehena Girish, Andrea Russel Serrano, Barbara Graham, Briana Marsico, Carolina Mehaffy, and Grace Borlee",
+    body: "Scientist Spotlights are a facile educational intervention that introduces students to counter-stereotypical scientists. This intervention has been shown to increase a sense of belonging, self-efficacy, interest in science, relatability to scientists, and perceptions of who can pursue a scientific career across high school, community college, and four-year university student populations. There are currently no studies that describe the use of Scientist Spotlights in the online graduate student population. Our study investigates a dynamic iteration of Scientist Spotlights (online guest speakers) in the context of an online graduate course. Eight guest speakers (research scientists or postdoctoral researchers) delivered lectures that included three components: educational and professional journey, molecular biology technique relevant to course content, and research projects. Graduate student research participants (24 Fall 2023 and 49 Fall 2024) completed pre- and post-course surveys, including stereotype and relatability prompts. Graduate students also completed the open-ended questions in the Scientist Spotlight homework assignment after each guest speaker. When asked about relatability, the consensus was that students knew scientists but did not identify with them, due to a lack of shared identity or a stereotype that scientists are not personable people. By the end of the course, students demonstrated a shifted definition of scientists, noting that exposure to the featured Scientist Spotlight individuals expanded their definition of who can be a scientist. Scientists became more relatable as a result, by having a shared identity, experience, or interest with the students. Our findings suggest that online graduate students connect with different aspects of these scientists’ narratives—such as their career journeys, work-life balance, educational path, and personal time spent outside work—compared to undergraduates exposed to similar counter-stereotypical interventions. This research demonstrates that incorporating counter-stereotypical scientists into the online graduate curriculum is an impactful intervention.",
+    funding: "Start-up funds",
+    presenter: { name: "Gehena Girish", level: "PhD Student", department: "Environmental & Radiological Health Sciences" },
+    researchType: ResearchType.Social Sciences/ Pedagogy Research,
+    mentors: ["Caroline Mehaffy"],
+    affiliations: [],
+    presentationType: PresentationType.Poster,
+    presentationSlot: "11",
+    location: "11:30 - 1:30"
+  },
   {
     id: "2B-1",
     title: "Identification of biomarkers of heat-induced illness in military working dogs",
@@ -3000,7 +3014,7 @@ export const abstractsData: Abstract[] = [
     location: "1:45 - 3:45"
   },
   {
-    id: "147",
+    id: "131",
     title: "Intracerebroventricular injection of neuropeptide Y suppresses luteinizing hormone pulses in mice",
     authors: "Lauren A Young, Evan R Hurtado, KD Jacobs, Zhi Mei Maria Lee, and Richard B McCosh",
     body: "It is well established that KNDy cells, termed for their coexpression of kisspeptin, neurokinin B, and dynorphin, in the arcuate nucleus of the hypothalamus (ARC) regulate gonadotropin-releasing hormone (GnRH) / luteinizing hormone (LH) pulse generation in mice. KNDy cells are a tightly regulated network of neurons receiving input from numerous afferent cell populations and are responsive to changes in physiological perturbations such as energy status or stress. While metabolic stress has been shown to impair reproduction via suppression of LH pulses, the central mechanism by which this happens is not fully understood. Neuropeptide Y (NPY) is a pleiotropic molecule that is produced in neurons throughout the brain and mediates several physiological processes including energy homeostasis and stress responses. Centrally administered NPY elicits variable effects on LH secretion, which depend on several factors including species, gonadal status, and the site of infusion. Therefore, the objective of this experiment was to determine the in vivo action of central NPY administration on LH secretion in mice. Intracerebroventricular injection (ICV) of NPY robustly suppressed LH pulses in ovariectomized (OVX) female and gonadectomized (GDX) male mice. However, the same treatment in gonad-intact males yielded variable responses, and analysis in estradiol replaced OVX female mice revealed an unexpected suppression of LH following brief isoflurane exposure. In assessment of possible sites of neuroendocrine impairment, we found a statistically significant increase in Pdyn (not Kiss1 or Tac2) mRNA abundance in arcuate nucleus micropunches 1 hour, but not 3 hours after ICV injection of NPY, suggesting cellular changes occurred in KNDy cells. In further support of the hypothesis that NPY impairs KNDy cell activity, we found that animals pretreated with NPY or saline had the same response to exogenous kisspeptin, suggesting GnRH neurons and gonadotrope cells remain fully functional. We conclude that NPY is sufficient to suppress LH secretion in OVX female and GDX male mice and that this suppression is likely mediated by the KNDy cells in the ARC.",
@@ -3014,7 +3028,7 @@ export const abstractsData: Abstract[] = [
     location: "11:30 - 1:30"
   },
   {
-    id: "148",
+    id: "96",
     title: "Radiographic and ultrasonographic characteristics of common gastrointestinal foreign bodies in dogs and cats",
     authors: "Peiaho Zhang, Linda Dillenbeck, and Elissa Randall",
     body: "Radiography and ultrasound are widely used for the evaluation of suspected gastrointestinal foreign body (FB) ingestion and obstruction in dogs and cats. FBs of metal and mineral opacity are readily visible on radiographs. However, many ingested FBs are completely/partially soft tissue opaque, making them challenging to visualize radiographically. Understanding the specific imaging characteristics of FBs could improve detection rates in patients presenting for suspected ingestion. This study compares the imaging characteristics of common gastrointestinal FBs. Twenty common FB types were imaged in four ex-vivo models. They were radiographed in air, water, water/food mixture, and small intestine, and imaged via ultrasound in water and small intestine. FB imaging features, including opacity, echogenicity, margination, shape, and acoustic shadowing, were described. On radiographs of the FBs in the intestine, 9 had a comparable heterogeneous appearance, 8 maintained characteristic imaging features, and 3 were not visible. There are overlapping imaging features of some FBs, particularly when within the small intestine. On ultrasound of the FBs in the intestine, 9 demonstrated hard shadowing, 5 partial/mixed shadowing, 4 without shadowing, and 2 with dirty shadowing. Abdominal radiographs from 55 clinical cases of confirmed FB ingestion underwent blinded review by two radiologists to predict the FB type. 18 cases had more than one type of FB. At least one FB type was correctly predicted in 81% and 62% of total FB types were correctly predicted. FBs with a heterogeneous appearance were more likely to be miscategorized. This study describes the imaging characteristics of common FBs, which could improve the detection rate in clinical cases.",
