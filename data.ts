@@ -5,9 +5,9 @@ export const scheduleData: ScheduleEvent[] = [
   { time: "10:00 – 10:15 am", title: "Opening Remarks", location: "Auditorium", type: 'general' },
   { time: "10:15 – 11:15 am", title: "Undergraduate Poster Session", location: "Grand Events Hall", type: 'session' },
   { time: "11:15 – 11:30 am", title: "Break", description: "Undergrads remove posters", type: 'break' },
-  { time: "11:30 – 1:30 pm", title: "Session I", description: "Oral Session 1A: Foundational Science (Auditorium)\nOral Session 2A: Translational Science (Boardroom)\nPoster Session 1: Odd Numbers (Grand Events Hall)", type: 'session' },
+  { time: "11:30 – 1:30 pm", title: "Session I", description: "Oral Session 1A: Foundational Science (Auditorium)\nOral Session 1B: Translational Science (Boardroom)\nPoster Session 1: Odd Numbers (Grand Events Hall)", type: 'session' },
   { time: "1:30 – 1:45 pm", title: "Break", description: "Remove odd posters, hang even posters", type: 'break' },
-  { time: "1:45 – 3:45 pm", title: "Session II", description: "Oral Session 2A: Foundational Science (Boardroom)\nOral Session 2B: Translational Science (Auditorium)\nPoster Session 2: Even Numbers (Grand Events Hall)", type: 'session' },
+  { time: "1:45 – 3:45 pm", title: "Session II", description: "Oral Session 2A: Foundational Science (Boardroom)\nOral Session 2B: Veterinary Clinical Science (Auditorium)\nPoster Session 2: Even Numbers (Grand Events Hall)", type: 'session' },
   { time: "3:45 – 4:15 pm", title: "Refreshments & Desserts", location: "Grand Events Hall", description: "Remove all posters", type: 'social' },
   { time: "4:15 – 5:00 pm", title: "Research Day Keynote", location: "Auditorium", type: 'general' },
   { time: "5:00 – 5:30 pm", title: "Awards Ceremony", location: "Auditorium", type: 'social' },
@@ -142,7 +142,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "1A",
-    location: "11:30 - 1:30"
+    location: "11:30 - 11:45"
   },
   {
     id: "9",
@@ -250,7 +250,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["qCMB T32"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1B",
-    location: "1:45 - 3:45"
+    location: "11:30 - 11:45"
   },
   {
     id: "U02",
@@ -276,7 +276,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "2A",
-    location: "11:30 - 1:30"
+    location: "1:45 - 2:00"
   },
   {
     id: "U03",
@@ -600,7 +600,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["VSSP", "Young Investigators"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1A",
-    location: "11:30 - 1:30"
+    location: "11:45 - 12:00"
   },
   {
     id: "33",
@@ -737,7 +737,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["CCTSI T32"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1A",
-    location: "11:30 - 1:30"
+    location: "12:00 - 12:15"
   },
   {
     id: "U10",
@@ -902,7 +902,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["ARBL", "Equine Reproduction Laboratory"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1A",
-    location: "11:30 - 1:30"
+    location: "12:15 - 12:30"
   },
   {
     id: "49",
@@ -1048,7 +1048,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "1B",
-    location: "1:45 - 3:45"
+    location: "11:45 - 12:00"
   },
   {
     id: "U14",
@@ -1132,7 +1132,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["Young Investigators"],
     presentationType: PresentationType.Oral,
     presentationSlot: "2B",
-    location: "1:45 - 3:45"
+    location: "1:45 - 2:00"
   },
   {
     id: "59",
@@ -1186,7 +1186,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "2B",
-    location: "1:45 - 3:45"
+    location: "2:00 - 2:15"
   },
   {
     id: "60",
@@ -1405,7 +1405,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "2A",
-    location: "11:30 - 1:30"
+    location: "2:00 - 2:15"
   },
   {
     id: "70",
@@ -1649,7 +1649,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "2A",
-    location: "11:30 - 1:30"
+    location: "2:15 - 2:30"
   },
   {
     id: "79",
@@ -1743,7 +1743,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["CCTSI T32", "Flint Animal Cancer Center"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1B",
-    location: "1:45 - 3:45"
+    location: "12:00 - 12:15"
   },
   {
     id: "U34",
@@ -2029,7 +2029,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["Center for Companion Animal Studies"],
     presentationType: PresentationType.Oral,
     presentationSlot: "2B",
-    location: "1:45 - 3:45"
+    location: "2:15 - 2:30"
   },
   {
     id: "100",
@@ -2073,7 +2073,7 @@ export const abstractsData: Abstract[] = [
     location: "1:45 - 3:45"
   },
   {
-    id: "2B-4",
+    id: "108",
     title: "The effect of extracorporeal shock wave therapy on cytokine and prostaglandin concentrations within synovial fluid following intra-articular injection with platelet-rich plasma",
     authors: "Keana McCosh and Katie Seabaugh",
     body: "Osteoarthritis (OA) is a leading cause of lameness in horses. Effective management of OA is essential to mitigate clinical signs and preserve joint function. In vitro studies indicate that extracorporeal shockwave therapy (ESWT) enhances cytokine release from platelet-rich plasma (PRP), suggesting a synergistic interaction. This pilot study aimed to evaluate the effects of ESWT on intra-articular PRP by analyzing synovial fluid cytokine concentrations. Four healthy mixed-breed horses were utilized. Inclusion criteria include normal metacarpophalangeal (MCP) joint motion, minimal MCP effusion, and normal baseline CBC values. Blood was collected and processed from each horse using a commercial PRP kit. Five milliliters of PRP were injected into both MCP joints. One MCP joint was randomly assigned to receive ESWT immediately after injection (1,000 pulses, 0.15 mJ/mm²). Synovial fluid was collected at baseline (0) and 2,6,24, and 48 hours after PRP injection for differential cell counts and PDGF-bb, TGF-β1, IL-1ra, and IL1B concentrations. The PRP preparations had a mean platelet concentration of 1,218 ± 174.4 × 10³/µL and a mean white blood cell concentration of 6.4 ± 11.12 × 10³/µL. Mean PDGF-bb, TGF-β1, and IL-1ra concentrations increased by 2 hours but concentrations were similar between groups. Mean PDGF-bb and IL-1ra concentrations from 0-48 hours were nearly identical between the two treatment groups for each cytokine. Mean TGFβ1 concentrations were greater for the PRP Only group for T2-48 but were not statistically different from the PRP+ESWT group (p>0.05). The addition of ESWT to intra-articular PRP did not affect cytokine concentrations; however, studies with larger sample sizes are needed to confirm these findings.",
@@ -2082,8 +2082,8 @@ export const abstractsData: Abstract[] = [
     researchType: ResearchType.Clinical,
     mentors: ["Katie Seabaugh"],
     affiliations: [],
-    presentationType: PresentationType.Oral,
-    presentationSlot: "2B",
+    presentationType: PresentationType.Poster,
+    presentationSlot: "108",
     location: "1:45 - 3:45"
   },
   {
@@ -2098,7 +2098,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "1A",
-    location: "11:30 - 1:30"
+    location: "12:30 - 12:45"
   },
   {
     id: "103",
@@ -2125,7 +2125,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["Center for Vector-Borne Infectious Diseases"],
     presentationType: PresentationType.Oral,
     presentationSlot: "2A",
-    location: "11:30 - 1:30"
+    location: "2:30 - 2:45"
   },
   {
     id: "U38",
@@ -2152,7 +2152,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "1B",
-    location: "1:45 - 3:45"
+    location: "12:15 - 12:30"
   },
   {
     id: "104",
@@ -2223,20 +2223,6 @@ export const abstractsData: Abstract[] = [
     location: "11:30 - 1:30"
   },
   {
-    id: "108",
-    title: "Developing an Equine Population Model for Disease Emergency Planning and Preparedness for the Contiguous USA",
-    authors: "Jairo Palomares Velosa, Joshua Reyling and Sangeeta Rao",
-    body: "Currently, there is a lack of a comprehensive dataset describing the location and distribution of equine operations across the US, which limits the capacity for disease outbreak response and emergency preparedness. This project aims to create a national equine population model, combining Geo-AI modeling and statistical probability mapping to identify and simulate the location of equine operations. The Geo-AI modeling component used deep-learning object-detection models based on regional convolutional neural networks (RCNNs) trained with National Agricultural Imagery Program (NAIP) imagery to identify structures characteristic of equine operations.  Preliminary results indicate that initial training using a ResNet-50 backbone achieved high accuracy (87–95%) after approximately 30 hours of training, whereas a faster RCNN (FRCNN) model trained on a ResNet-34 backbone produced lower accuracy but substantially reduced computation time. Ongoing training of the FRCNN model using the ResNet-50 backbone is expected to improve accuracy maintaining efficiency. Parallelly, the statistical probability mapping component starts by modeling (logistic regression) anthropogenic and environmental covariates derived from Esri’s Living Atlas affecting the likelihood of equine operations presence. Preliminary results applied to an exemplary region (Central-northern Colorado) indicate that higher 10y average temperature (OR = 1.2 × 10⁵; p = 0.03), lower human density (OR = 1.01; p = 0.01), and proximity to water (OR = 1.01; p = 0.03) affect the presence of equine operation, with significant interaction effects between precipitation and land cover (OR = 2.08; p = 0.022). Ongoing model improvements include adding distance to supporting infrastructure and expanding the area of data collection. Next steps include implementation of trained Geo-AI models and the suitability mapping to national scale, validation and integration of both approaches to generate a nationwide dataset of equine operations and horse population estimates to support risk-based surveillance, targeted resource allocation, and rapid response during equine disease emergencies and natural disasters.",
-    funding: "Cooperative agreement funded by National Animal Disease Preparedness and Response Program (NADPRP) Cooperative Agreement from USDA-APHIS",
-    presenter: { name: "Jairo Palomares Velosa", level: "Post-Doc", department: "Clinical Sciences" },
-    researchType: ResearchType.Translational,
-    mentors: ["Sangeeta Rao"],
-    affiliations: [],
-    presentationType: PresentationType.Poster,
-    presentationSlot: "108",
-    location: "1:45 - 3:45"
-  },
-  {
     id: "109",
     title: "Evaluating the impact of the T6SS virulence factor on Salmonella Dublin colonization in vitro",
     authors: "Kihoon Park, Mark D Zabel and Sarah Raabis",
@@ -2275,7 +2261,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "1B",
-    location: "1:45 - 3:45"
+    location: "12:30 - 12:45"
   },
   {
     id: "U41",
@@ -2314,7 +2300,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["Translational Medicine Institute"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1B",
-    location: "1:45 - 3:45"
+    location: "12:45 - 1:00"
   },
   {
     id: "2A-5",
@@ -2398,7 +2384,7 @@ export const abstractsData: Abstract[] = [
     location: "11:30 - 1:30"
   },
   {
-    id: "114",
+    id: "2B-4",
     title: "Temporal decline in serum acetate at day 34 of gestation parallels FFAR2 expression in the equine chorionic girdle",
     authors: "Patricio Razquin, Javier Funes, Julie Wall, Ryan Eastman, Jennifer N Hatzel, Carleigh E Fedorka, and Jennifer L Sones",
     body: "Early embryonic loss in horses, defined as pregnancy failure from fertilization to day 60, is a poorly understood cause of major economic loss. Acetate is a short chain fatty acid (SCFA) produced by microbial fermentation in the gut. It is associated with multiple metabolic and immunomodulatory functions when bound to its receptor free fatty acid receptor (FFAR) 2. Previous microarray data showed upregulation of FFAR2 in the chorionic girdle on day 34 of gestation, suggesting a role in the development of endometrial cups. Therefore, we hypothesize that SCFAs would be present in the uterus of non-pregnant mares and increasing concentrations in pregnant mares prior to endometrial cup formation. Twenty-one mares were bred with raw semen from the same stallion. Serum and uterine fluid samples were obtained before and after insemination, and acetate concentrations were measured using gas chromatography mass spectrometry (GC-MS).  Serum was obtained from mares that became pregnant (n=10) at 14 days and again at 34 days when the conceptus was flushed, uterine fluid was saved for GC-MS and the chorionic girdle dissected for qRT-PCR. Statistics were performed using GraphPad Prism 10.6.1. Normally distributed data was tested by one-way ANOVA and data not normally distributed was assessed using a Wilcoxon test with significance set at p≤0.05. Acetate concentration in uterine fluid significantly increased after breeding (P=0<01) but no differences were noted between mares that became pregnant versus mares that did not (p=0.97). Serum acetate concentration decreased significantly (p<0.01) at day 34 of gestation when compared to before breeding. qRT-PCR confirmed high FFAR2 expression in the chorionic girdle versus chorion (p<0.001). In conclusion, acetate is present in high concentrations after breeding in the equine uterus and decreased in serum at day 34 of gestation. Future work is needed but this suggests utilization of systemic acetate by the equine chorionic girdle.",
@@ -2407,9 +2393,9 @@ export const abstractsData: Abstract[] = [
     researchType: ResearchType.Clinical,
     mentors: ["Jenny Sones", "Jennifer Hatzel"],
     affiliations: [],
-    presentationType: PresentationType.Poster,
-    presentationSlot: "114",
-    location: "1:45 - 3:45"
+    presentationType: PresentationType.Oral,
+    presentationSlot: "2B-4",
+    location: "2:30 - 2:45"
   },
   {
     id: "115",
@@ -2559,7 +2545,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "1B",
-    location: "1:45 - 3:45"
+    location: "1:00 - 1:15"
   },
   {
     id: "U44",
@@ -2601,7 +2587,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["VSSP", "Flint Animal Cancer Center"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1B",
-    location: "1:45 - 3:45"
+    location: "1:15 - 1:30"
   },
   {
     id: "126",
@@ -2655,7 +2641,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["Equine Reproduction Laboratory", "Flint Animal Cancer Center", "Orthopaedic Research Center", "Preclinical Surgical Research Lab", "Translational Medicine Institute"],
     presentationType: PresentationType.Oral,
     presentationSlot: "2B",
-    location: "1:45 - 3:45"
+    location: "2:45 - 3:00"
   },
   {
     id: "2B-6",
@@ -2738,7 +2724,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "1A",
-    location: "11:30 - 1:30"
+    location: "12:45 - 1:00"
   },
   {
     id: "132",
@@ -2766,7 +2752,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["MSTP T32", "Preclinical Surgical Research Lab", "Translational Medicine Institute"],
     presentationType: PresentationType.Oral,
     presentationSlot: "2B",
-    location: "1:45 - 3:45"
+    location: "3:15 - 3:30"
   },
   {
     id: "133",
@@ -2794,7 +2780,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["MSTP T32", "Prion Research Center"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1A",
-    location: "11:30 - 1:30"
+    location: "1:00 - 1:15"
   },
   {
     id: "134",
@@ -2834,7 +2820,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["MSTP T32"],
     presentationType: PresentationType.Oral,
     presentationSlot: "1A",
-    location: "11:30 - 1:30"
+    location: "1:15 - 1:30"
   },
   {
     id: "2A-6",
@@ -2848,7 +2834,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["IMSD T32", "Prion Research Center"],
     presentationType: PresentationType.Oral,
     presentationSlot: "2A",
-    location: "11:30 - 1:30"
+    location: "3:00 - 3:15"
   },
   {
     id: "136",
@@ -2876,7 +2862,7 @@ export const abstractsData: Abstract[] = [
     affiliations: [],
     presentationType: PresentationType.Oral,
     presentationSlot: "2A",
-    location: "11:30 - 1:30"
+    location: "3:15 - 3:30"
   },
   {
     id: "137",
@@ -2943,7 +2929,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["VSSP"],
     presentationType: PresentationType.Oral,
     presentationSlot: "2B",
-    location: "1:45 - 3:45"
+    location: "3:30 - 3:45"
   },
   {
     id: "139",
@@ -3040,7 +3026,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["IMSD T32"],
     presentationType: PresentationType.Oral,
     presentationSlot: "2A",
-    location: "11:30 - 1:30"
+    location: "3:30 - 3:45"
   },
   {
     id: "145",
