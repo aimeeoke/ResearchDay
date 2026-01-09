@@ -225,20 +225,6 @@ export const abstractsData: Abstract[] = [
     location: "10:15 - 11:15"
   },
   {
-    id: "14",
-    title: "Development of an All-Hazards Emergency Management Playbook for Animal Health",
-    authors: "Ana Bertozzi, Dan Frazen and Kathy Whitman",
-    body: "Natural disasters affect both humans and animals, yet emergency managers are often tasked with livestock care despite limited training in animal health and welfare. While veterinary response teams such as the National Veterinary Response Teams (NVRT) and AVMA Veterinary Medical Assistance Teams (VMAT) may be deployed, their arrival is frequently delayed, leaving on-site personnel to make time-sensitive decisions without veterinary guidance. This operational gap highlights the need for translational approaches that bridge veterinary medicine and emergency management to enable coordinated, evidence-based response efforts.  To address this gap, a practical, evidence-based playbook was developed to translate veterinary medical knowledge into accessible, field-ready guidance which will be distributed by the Colorado Department of Agriculture to Emergency Managers throughout the state. The playbook was developed through literature review, consultation with subject-matter experts, and analysis of past disaster response operations. The playbook offers guidance for integrating livestock into disaster response operations, with emphasis on recognizing when animals require medical attention and providing tools to address basic animal health concerns. Key components include control points for safe animal handling, animal evacuation, shelter intake, biosecurity, and general animal management. Organized as an emergency response timeline divided by operational periods, the playbook also includes species-specific considerations for livestock affected by fire, flood, extreme heat, and extreme cold. Quick reference sheets for each disaster type are included to enhance usability during an operational response. By translating veterinary expertise into actionable guidance for non-veterinary professionals, this playbook demonstrates the application of translational medicine at the human–animal–environment interface. The playbook is designed to improve animal health and welfare outcomes during disasters and strengthen community resilience by bridging the gap between emergency management and veterinary expertise.",
-    funding: "Colorado State University Extension and Colorado Department of Agriculture",
-    presenter: { name: "Ana Bertozzi", level: "DVM Student", department: "Clinical Sciences" },
-    researchType: ResearchType.Translational,
-    mentors: ["Kathy Whitman", "Dan Frazen"],
-    affiliations: [],
-    presentationType: PresentationType.Poster,
-    presentationSlot: "14",
-    location: "1:45 - 3:45"
-  },
-  {
     id: "1B-1",
     title: "Telomeric RNA (TERRA) is Elevated in Canine Osteosarcoma, a Hallmark of the Alternative Lengthening of Telomeres (ALT) Pathway",
     authors: "Owen Bevis, Sunetra Das, Dawn Duval, Douglas H Thamm, Kirill Grigorev, Christopher E Mason and Susan M Bailey",
@@ -905,20 +891,6 @@ export const abstractsData: Abstract[] = [
     location: "12:15 - 12:30"
   },
   {
-    id: "49",
-    title: "Improving Treatment Paradigm for Cats with Feline Infectious Peritonitis Using Combined GS-441524 and GC376 Antiviral Treatment and Caregiver Surveys",
-    authors: "Julia Felder, Nicole Jacque, Severine Tasker, Samantha Taylor, Sally Coggins, Sarah Jones, Cami Cotter, Alina Hernandez, Petra Cerna, Wendy Novicoff, and Samantha Evans",
-    body: "Feline infectious peritonitis (FIP), caused by feline coronavirus, affects an estimated 1:300 feline patients and results in a near 100% fatality rate in untreated cases. While antiviral therapies have shown significant improvement in outcomes, as of 2025, no FDA-approved treatment or a defined standard of care exists. Current treatment protocol recommendations involve 12 weeks of antiviral monotherapy, posing challenges for caregiver burden, cost, and potential antiviral resistance. Developing improved evidence-based treatment guidelines requires strong clinical data and informed caretaker experience.   Combination antiviral therapies—a standard in human medicine for many viral diseases—have demonstrated decreased treatment length in cats with FIP. This study will evaluate the safety and efficacy of combination therapy using oral GS-441524, a nucleoside analog, and oral GC376, a protease inhibitor, in cats with suspected FIP. Treatment will be applied across a wide variety of FIP presentations (ex: age, organ involvement, effusive vs. non-effusive, severity at time of treatment, etc.), with enrollment and endpoint criteria evaluated using multiple diagnostic methods. Cats will be treated for a minimum of 14 days, with GS-441524 continuing in two-week intervals until resolution of clinical signs and normalization of ≥80% of previously abnormal diagnostic findings, or up to 84 days.  In addition to clinical findings, a survey of cat owners and veterinarians will investigate barriers to treatment, including cost, legal access, social media influence, administration challenges, information availability, and veterinary support. Understanding these challenges will inform the feasibility and design of updated, evidence-based treatment guidelines.",
-    funding: "Best Friends Animal Society, MedVet Animal Hospital",
-    presenter: { name: "Julia Felder", level: "DVM/PhD Student", department: "Microbiology, Immunology, and Pathology" },
-    researchType: ResearchType.Clinical,
-    mentors: ["Samantha Evans"],
-    affiliations: [],
-    presentationType: PresentationType.Poster,
-    presentationSlot: "49",
-    location: "11:30 - 1:30"
-  },
-  {
     id: "50",
     title: "Visualizing cellular localization and dynamics of ectopic tubulin isotypes and pathogenic tubulin variants",
     authors: "Sareen Fiaz, Barb Powers and Jayne Aiken",
@@ -1243,20 +1215,6 @@ export const abstractsData: Abstract[] = [
     presentationType: PresentationType.Poster,
     presentationSlot: "62",
     location: "1:45 - 3:45"
-  },
-  {
-    id: "U20",
-    title: "Implementation and impact of an extracurricular Inclusive Science Communication training and mentorship program",
-    authors: "Jessica Gray, Habbah Gilliard, Delaney Worthington and Nicole C Kelp",
-    body: "Inclusive science communication (ISC) aims to make scientific information accessible and relevant to a diverse range of communities; however, it is rarely implemented.  Previous studies examined the impact of a 50-minute ISC training program. While the mindsets of participants scored highly, intentions were low. Based on the Theory of Planned Behavior (TPB), we theorized that more intensive training would help develop intentions more.  We evaluated this hypothesis by examining the impact of an extracurricular ISC mentorship program on students' ability to understand and apply ISC. We also created the ISC Lifecycle; a framework formed to help represent the key steps of the ISC process for study participants. We recruited participants and assigned them as mentors or mentees. Prior to the retreat, mentors attended a general and inclusive mentoring training. All participants attended an 8-hour retreat with the goal of building community while practicing ISC skills. Participants created a 10-hour project, and mentors offered support and strengthened their relationships through bonding activities. Finally at a 2-hour project celebration, participants submitted a 250-word summary, any project materials, and presented their projects. Using systematic coding, we analyzed what communities and socioscientific issues were most important to our participants for their projects. Socioscientific issues are complex and persistent problems that integrate scientific concerns and systematic social challenges.  From our analysis, we found that health-related issues and LGBTQ+ and STEM communities appeared most frequently, and most projects focused on ISC Lifecycle Step 1.  Participants completed the Planned Behaviors in Inclusive Science Communication (PB-ISC) scale, and we analyzed students’ pre-post retrospective self-assessments using a Wilcoxon ranked sums test which highlighted a significant pre-to-post increase. The results of this study demonstrate that a longer, in-depth training positively impacts ISC mindsets and behaviors. This study was supported by National Science Foundation Grant #2225095 to Nicole Kelp.",
-    funding: "National Science Foundation Grant #2225095 to Nicole Kelp.",
-    presenter: { name: "Jessica Gray", level: "Undergraduate Student", department: "Biomedical Sciences" },
-    researchType: ResearchType.Social,
-    mentors: ["Nicole Kelp", "Delaney Worthington"],
-    affiliations: [],
-    presentationType: PresentationType.Poster,
-    presentationSlot: "U20",
-    location: "10:15 - 11:15"
   },
   {
     id: "63",
@@ -2560,20 +2518,6 @@ export const abstractsData: Abstract[] = [
     presentationType: PresentationType.Poster,
     presentationSlot: "U44",
     location: "10:15 - 11:15"
-  },
-  {
-    id: "125",
-    title: "Air pollution exposure during training impairs performance in Thoroughbred racehorses",
-    authors: "Danielle Scott, Katie Seabaugh, Linda Kim, Sheryl Magzamen, and Colleen Duncan",
-    body: "Ambient air pollution contributes substantially to human morbidity and mortality, and athletes are recognized as a particularly vulnerable group. However, little is known about its impact on equine athletes. We conducted a retrospective longitudinal cohort study to estimate the relationship between repeated air pollution exposure and race-day performance among Thoroughbred racehorses competing at California racetracks. Analyses were restricted to first-place finishers. For each winning horse, we assigned a pollutant exposure profile based on the higher daily Air Quality Index (AQI) value of fine particulate matter (PM2.5) or ozone (O3) at the racetrack where horses trained and competed, for the 21 days preceding the race. A distributed lag non-linear model was applied to estimate associations between pollutant exposure in the pre-competition training period and winning speed. Compared with horses exposed at the 20th percentile of AQI (AQI = 32), those exposed at the 80th percentile (AQI = 58) had slower winning speeds across lag days, with statistically significant decreases observed approximately two to 17 days before competition. Over the full 21-day window, exposure to an AQI of 58 was associated with a decrease in winning speed of 0.044 m/s (95% CI: -0.056, -0.032). These findings demonstrate that air pollution adversely affects equine performance, emphasizing the need for monitoring air quality and supporting the use of the AQI to inform decision-making during the pre-competition training period.",
-    funding: "Morris Animal Foundation",
-    presenter: { name: "Danielle Scott", level: "PhD Student", department: "Microbiology, Immunology, and Pathology" },
-    researchType: ResearchType.Translational,
-    mentors: ["Colleen Duncan", "Webb Craig"],
-    affiliations: [],
-    presentationType: PresentationType.Poster,
-    presentationSlot: "125",
-    location: "11:30 - 1:30"
   },
   {
     id: "1B-8",
