@@ -171,7 +171,7 @@ export const abstractsData: Abstract[] = [
     location: "1:45 - 3:45"
   },
   {
-    id: "11",
+    id: "14",
     title: "Evaluation of the use, performance, and clinical relevance of special stains in veterinary cytopathology",
     authors: "Amanda Barnard and A Russel Moore",
     body: "Special staining, including immunocytochemical (ICC) and cytochemical stains, provide additional diagnostic information in veterinary cytopathology but their use, performance and clinical relevance in routine diagnostic evaluations are not well documented. This study aimed to evaluate: (1) What special stains were most used. (2) How conclusive were the cytologic interpretations after staining. (3) Whether clinicians incorporated the results into their diagnosis or therapeutic plan. And (4) the agreement between special stain interpretation and subsequent diagnostic and clinical data. Laboratory and available medical records from 217 cytology cases with special staining completed from December 1, 2023, to November 31, 2024 at the CSU Veterinary Clinical Pathology Laboratory were reviewed. Cases represented 185 dogs, 27 cats, 2 birds, and one each of hamster, horse, and bearded dragon. 352 ICC stains were performed. These most commonly targeted histiocytic/macrophagic, lymphoid/plasma cell, cytoskeletal, vascular, or melanocytic markers. 87 cytochemical stains were performed and targeted pigments, enzyme activity, and infectious agents. Data were analyzed using Fisher’s exact test. Labeling failures (i.e. inability to interpret due to failed controls) occurred in 17/439 (3.9%) stain attempts. Staining identified a specific condition or disease state and was thus classified as definitive in 122/217 (56.2%) cases; the remaining cases provided informative but non-definitive interpretations, except for 5/217 (2.3%) non-interpreted cases impacted by labeling failure. Cytochemistry was more often definitive (53/74 cases, 71.6%) than ICC (69/143 cases, 48.3%), p=0.001. Results were used in 80/84 (95.2%) cases with available medical records. Comparing cytological interpretation with subsequent data, most cases showed full agreement (43/62 cases, 69.4%) or partial agreement (10/62 cases, 16.1%). Discord without clear indication of the correct interpretation occurred in 5/62 (8.1%) cases. In 4/62 (6.5%) cases, subsequent data demonstrated that the cytologic interpretation was incorrect. These findings underscore the diagnostic value and limitations of ICC and cytochemical stains in veterinary cytopathology.",
@@ -180,8 +180,8 @@ export const abstractsData: Abstract[] = [
     mentors: ["A Russell Moore"],
     affiliations: ["Veterinary Diagnostic Laboratories"],
     presentationType: PresentationType.Poster,
-    presentationSlot: "11",
-    location: "11:30 - 1:30"
+    presentationSlot: "14",
+    location: "1:45 - 3:45"
   },
   {
     id: "12",
@@ -1800,7 +1800,7 @@ export const abstractsData: Abstract[] = [
     location: "11:30 - 1:30"
   },
   {
-    id: "88",
+    id: "91",
     title: "Neurological consequences of chronic wildfire smoke exposure in mice",
     authors: "Avery Lessard, Madison Johnson, Jacob Smoot, Julie A Moreno, Richard McCosh, and Luke Montrose",
     body: "Wildfires have become increasingly intense and frequent due to climate change. Epidemiologic studies have reported a link between higher dementia incidence with greater long-term exposure to wildfire-sourced PM2.5. While these studies have identified an association, they have not yet determined the specific mechanisms by which wildfire-sourced PM2.5 could contribute to neurodegeneration. This project uses a whole-body exposure model to investigate how a chronic and hazardous exposure to wildfire smoke may impact neurological health. We hypothesize that chronic exposure to hazardous levels of wildfire-sourced PM2.5 will affect neurological health through behavioral changes, alterations in neuronal abundance, and the accumulation and distribution of inflammatory factors within the brain. To assess the effects of wildfire smoke, fourteen male mice were exposed 2 hours/day to 40mg/m3 of wildfire smoke by burning Douglas fir needles at a smoldering temperature of 460C in an exposure chamber for 60 days over a 3-month period. Weekly behavioral assays were conducted to measure locomotor activity, anxiety-like behavior, recognition memory, and exploration. To assess pre-mortem neurological health, post-mortem analysis was conducted using immunohistochemistry. This analysis identifies levels of neurons and inflammation in the brain and examines how this inflammation is distributed across brain regions. We anticipate that mice exposed to wildfire smoke will show a lower level of neurons and a higher level of inflammation in their brains compared to the controls. In addition, we expect these mice to display less exploratory behavior than the control mice. These findings will expand the field’s understanding of how wildfire smoke interferes with neurological health and could ultimately support future efforts to develop strategies to protect neurological health in the face of increasing wildfire smoke exposure.",
@@ -1810,8 +1810,8 @@ export const abstractsData: Abstract[] = [
     mentors: ["Luke Montrose", "Julie Moreno"],
     affiliations: ["IMSD T32", "Brain Research Center"],
     presentationType: PresentationType.Poster,
-    presentationSlot: "88",
-    location: "1:45 - 3:45"
+    presentationSlot: "91",
+    location: "11:30 - 1:30"
   },
   {
     id: "89",
@@ -1865,7 +1865,7 @@ export const abstractsData: Abstract[] = [
     affiliations: ["ARBL", "Infectious Disease Research Center"],
     presentationType: PresentationType.Poster,
     presentationSlot: "91",
-    location: "11:30 - 1:30"
+    location: "1:45 - 3:45"
   },
   {
     id: "92",
@@ -2643,7 +2643,7 @@ export const abstractsData: Abstract[] = [
     location: "1:45 - 3:45"
   },
   {
-    id: "131",
+    id: "108",
     title: "Pharmacokinetics and pharmacodynamics of intravenous and oral transmucosal methadone in New Zealand white rabbits – a pilot study",
     authors: "Katya Spitznagel, Zachary Padilla, Marlis Rezende, Miranda Sadar, Duane Brandau and Khursheed Mama",
     body: "Methadone is a potent analgesic drug with action across opioid and N-methyl-D-aspartate receptors that has been minimally studied in rabbits. Although injectable methadone may be cost prohibitive for some clients, an inexpensive oral formulation is available. The objectives of this pilot study were to evaluate pharmacokinetics and pharmacodynamics (sedation, vital parameters, gastrointestinal function) of intravenous (IV) and oral transmucosal (OTM) methadone in New Zealand white rabbits. Two, healthy, adult rabbits received, in a crossover design, 1 mg/kg IV and OTM methadone with a 1-week washout period between treatments. Food intake, fecal output, and body weight were determined for three days before, and three days after, drug administration. On the day of testing, baseline sedation score, body weight, oral pH, rectal temperature, and respiratory and heart rates (TPR) were obtained. Blood was collected at 0, 2, 5, 10, 15, 30, 45, and 60 minutes, and 2, 4, 6, 8, 12, and 24 hours. Sedation score and TPR   were obtained at 0.5, 1, 1.5, 2, 3, 4, 5, and 6 hours. The rabbits’ TPR did not change after drug administration for the OTM group but decreased significantly between 10 and 30 minutes following IV administration. Plasma methadone concentrations were determined using liquid chromatography/mass spectrometry. No adverse effects were appreciated. Sedation occurred for 2-3 hours following IV, but not OTM, administration. Fecal production occurred 2-6 hours after drug administration and normalized by 12 hours. The IV route exceeded the target plasma concentration (50 g/mL) but was metabolized quickly; OTM did not reach target levels. Based on pharmacokinetic simulations, it is recommended to increase doses to 1.5mg/kg IV and 3mg/kg OTM; however, future studies are needed to evaluate these doses. \n",
@@ -2653,8 +2653,8 @@ export const abstractsData: Abstract[] = [
     mentors: ["Marlis Rezende", "Miranda Sadar"],
     affiliations: ["Young Investigators"],
     presentationType: PresentationType.Poster,
-    presentationSlot: "131",
-    location: "11:30 - 1:30"
+    presentationSlot: "108",
+    location: "1:45 - 3:45"
   },
   {
     id: "1A-6",
