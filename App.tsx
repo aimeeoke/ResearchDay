@@ -1,18 +1,59 @@
 import React, { useState } from 'react';
-import { Home, Calendar, Users, Info, ChevronLeft } from 'lucide-react';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { Home, Calendar, Users, ChevronLeft } from 'lucide-react';
 import AbstractsView from './components/AbstractsView';
 import ScheduleView from './components/ScheduleView';
 import SponsorsView from './components/SponsorsView';
 import { Abstract, AbstractFilters } from './types';
 import AbstractDetail from './components/AbstractDetail';
+import { abstractsData } from './data';
+import ErrorBoundary from './components/ErrorBoundary';
 
-type View = 'abstracts' | 'schedule' | 'sponsors';
+function AbstractDetailPage() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-export default function App() {
-  const [currentView, setCurrentView] = useState<View>('abstracts');
-  const [selectedAbstract, setSelectedAbstract] = useState<Abstract | null>(null);
+  // Extract abstract ID from URL path
+  const pathParts = location.pathname.split('/');
+  const abstractId = pathParts[pathParts.length - 1];
+  const abstract = abstractsData.find(a => a.id === abstractId);
 
-// Filter state lifted from AbstractsView so it persists when viewing details
+  const handleBack = () => {
+    navigate('/abstracts');
+  };
+
+  if (!abstract) {
+    return <Navigate to="/abstracts" replace />;
+  }
+
+  return (
+    <div className="flex flex-col h-screen bg-gray-50 text-gray-800">
+      <header className="bg-[#1E4D2B] text-white shadow-md z-20">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <button onClick={handleBack} className="p-1 hover:bg-[#153820] rounded-full transition-colors" aria-label="Back">
+              <ChevronLeft size={24} />
+            </button>
+            <h1 className="text-xl font-bold truncate">Abstract Details</h1>
+          </div>
+        </div>
+      </header>
+
+      <main className="flex-1 overflow-hidden relative">
+        <div className="absolute inset-0 overflow-y-auto no-scrollbar scroll-smooth">
+          <AbstractDetail abstract={abstract} />
+          <div className="h-24"></div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+function MainLayout() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Filter state lifted from AbstractsView so it persists when viewing details
   const [searchTerm, setSearchTerm] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState<AbstractFilters>({
@@ -21,18 +62,19 @@ export default function App() {
     mentor: '',
     affiliation: ''
   });
-  
-  const handleAbstractClick = (abstract: Abstract) => {
-    setSelectedAbstract(abstract);
-  };
 
-  const handleBack = () => {
-    setSelectedAbstract(null);
+  const handleAbstractClick = (abstract: Abstract) => {
+    navigate(`/abstracts/${abstract.id}`);
   };
 
   const toggleFilters = () => {
     setShowFilters(prev => !prev);
   };
+
+  // Determine current view from URL
+  const currentView = location.pathname.startsWith('/schedule') ? 'schedule'
+    : location.pathname.startsWith('/sponsors') ? 'sponsors'
+    : 'abstracts';
 
   return (
     <div className="flex flex-col h-screen bg-gray-50 text-gray-800">
@@ -40,20 +82,12 @@ export default function App() {
       <header className="bg-[#1E4D2B] text-white shadow-md z-20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            {selectedAbstract ? (
-              <button onClick={handleBack} className="p-1 hover:bg-[#153820] rounded-full transition-colors" aria-label="Back">
-                <ChevronLeft size={24} />
-              </button>
-            ) : (
-              <img 
-                src="/CSU-Ram-Head.png" 
-                alt="CVMBS Logo" 
-                className="w-10 h-10 rounded-full"
-              />
-            )}
-            <h1 className="text-xl font-bold truncate">
-              {selectedAbstract ? 'Abstract Details' : 'CVMBS Research Day 2026'}
-            </h1>
+            <img
+              src="/CSU-Ram-Head.png"
+              alt="CVMBS Logo"
+              className="w-10 h-10 rounded-full"
+            />
+            <h1 className="text-xl font-bold truncate">CVMBS Research Day 2026</h1>
           </div>
         </div>
       </header>
@@ -61,56 +95,47 @@ export default function App() {
       {/* Main Content */}
       <main className="flex-1 overflow-hidden relative">
         <div className="absolute inset-0 overflow-y-auto no-scrollbar scroll-smooth">
-          {selectedAbstract ? (
-            <AbstractDetail abstract={selectedAbstract} />
-          ) : (
-            <>
-              {currentView === 'abstracts' && (
-                <AbstractsView
-                  onAbstractClick={handleAbstractClick}
-                  searchTerm={searchTerm}
-                  setSearchTerm={setSearchTerm}
-                  showFilters={showFilters}
-                  toggleFilters={toggleFilters}
-                  filters={filters}
-                  setFilters={setFilters}
-              />
-          )}         
-              
-              {currentView === 'schedule' && <ScheduleView />}
-              {currentView === 'sponsors' && <SponsorsView />}
-            </>
+          {currentView === 'abstracts' && (
+            <AbstractsView
+              onAbstractClick={handleAbstractClick}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              showFilters={showFilters}
+              toggleFilters={toggleFilters}
+              filters={filters}
+              setFilters={setFilters}
+            />
           )}
+          {currentView === 'schedule' && <ScheduleView />}
+          {currentView === 'sponsors' && <SponsorsView />}
           {/* Bottom spacer for nav */}
           <div className="h-24"></div>
         </div>
       </main>
 
-      {/* Bottom Navigation (Mobile & Desktop sticky) */}
-      {!selectedAbstract && (
-        <nav className="bg-white border-t border-gray-200 shadow-lg z-30 fixed bottom-0 w-full pb-safe-area">
-          <div className="max-w-7xl mx-auto flex justify-around items-center h-16">
-            <NavButton 
-              active={currentView === 'abstracts'} 
-              onClick={() => setCurrentView('abstracts')} 
-              icon={<Home size={24} />} 
-              label="Abstracts" 
-            />
-            <NavButton 
-              active={currentView === 'schedule'} 
-              onClick={() => setCurrentView('schedule')} 
-              icon={<Calendar size={24} />} 
-              label="Schedule" 
-            />
-            <NavButton 
-              active={currentView === 'sponsors'} 
-              onClick={() => setCurrentView('sponsors')} 
-              icon={<Users size={24} />} 
-              label="Sponsors" 
-            />
-          </div>
-        </nav>
-      )}
+      {/* Bottom Navigation */}
+      <nav className="bg-white border-t border-gray-200 shadow-lg z-30 fixed bottom-0 w-full pb-safe-area">
+        <div className="max-w-7xl mx-auto flex justify-around items-center h-16">
+          <NavButton
+            active={currentView === 'abstracts'}
+            onClick={() => navigate('/abstracts')}
+            icon={<Home size={24} />}
+            label="Abstracts"
+          />
+          <NavButton
+            active={currentView === 'schedule'}
+            onClick={() => navigate('/schedule')}
+            icon={<Calendar size={24} />}
+            label="Schedule"
+          />
+          <NavButton
+            active={currentView === 'sponsors'}
+            onClick={() => navigate('/sponsors')}
+            icon={<Users size={24} />}
+            label="Sponsors"
+          />
+        </div>
+      </nav>
     </div>
   );
 }
@@ -135,3 +160,19 @@ const NavButton: React.FC<NavButtonProps> = ({ active, onClick, icon, label }) =
     <span className="text-xs font-medium">{label}</span>
   </button>
 );
+
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/abstracts" replace />} />
+          <Route path="/abstracts" element={<MainLayout />} />
+          <Route path="/abstracts/:id" element={<AbstractDetailPage />} />
+          <Route path="/schedule" element={<MainLayout />} />
+          <Route path="/sponsors" element={<MainLayout />} />
+        </Routes>
+      </BrowserRouter>
+    </ErrorBoundary>
+  );
+}

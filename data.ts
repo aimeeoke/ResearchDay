@@ -1233,7 +1233,7 @@ export const abstractsData: Abstract[] = [
   {
     id: "63",
     title: "CSUs Veterinary Clients are Climate-Engaged and Seek Resources to Safeguard Pet Health from Environmental Hazards",
-    authors: "Kelly Greenhut, Taylor Crisologo, Cat Taylor Krouse, Rhea Amatya, Gracie Knowles, Dannit Scott, Caroline Kern-Alley and Colleen Duncan",
+    authors: "Kelly Greenhut, Taylor Crisologo, Cat Taylor Krouse, Rhea Amatya, Gracie Knowles, Danni Scott, Caroline Kern-Alley and Colleen Duncan",
     body: "Effective client communication in veterinary medicine requires understanding audience perspectives and values. Previous research suggests that many veterinary clients care about environmental sustainability, but little is known about their specific attitudes toward climate change or how they prefer to receive health-related information. In Colorado, recent studies have identified significant environmental hazards affecting both human and animal health, including heat stress, air quality, and wildfires, highlighting the need for veterinary professionals to address these risks in client communication. The Six Americas Super Short Survey (SASSY) is a validated four-question survey developed by the Yale Program on Climate Change Communication to categorize individuals based on climate change beliefs and engagement into one of six groups: Alarmed, Concerned, Cautious, Disengaged, Doubtful, or Dismissive. This study used the SASSY to assess veterinary clients’ climate attitudes and identify communication preferences to inform development of climate and pet health resources. The survey was distributed to clients of Colorado State University’s Veterinary Teaching Hospital over a three-month period. The survey was accessible via QR code in waiting and exam rooms. The survey included the four SASSY questions, as well as additional questions about preferred receipt of information. Most client respondents were categorized as Alarmed or Concerned on the SASSY scale, indicating high engagement with climate issues. Respondents expressed strong interest in resources connecting environmental hazards to pet health. Clients preferred receiving information via online materials or in-clinic handouts. These findings suggest that veterinary clients are receptive to communication, linking pet health to climate-related environmental hazards. Here we also share a series of targeted client-facing resources to help pet owners prepare for and respond to environmental hazards.",
     presenter: { name: "Kelly Greenhut", level: "DVM Student", department: "Microbiology, Immunology, and Pathology" },
     researchType: ResearchType.Social,
@@ -1842,20 +1842,6 @@ export const abstractsData: Abstract[] = [
     location: "11:30 - 1:30"
   },
   {
-    id: "90",
-    title: "Risk of carcass contamination at slaughter in pigs on full feed at the time of marketing: a Pilot study with public health implications",
-    authors: "Kara Linder, Kyle F Coble, Hansel Cordoba, Scott N  Carr, Robert Evelsizer, Jessica Risser, M Turner, and Kim Baker",
-    body: "Salmonella is a leading foodborne pathogen in pork production and has the potential to be introduced to meat products during slaughter through gastrointestinal content spillage. Feed withdrawal prior to transport to the slaughter facility has been recommended to mitigate this risk, although implementation across U.S. production systems remains variable. The objective of this study was to evaluate the effect of feed access before market hog transport on carcass trim and microbial contamination outcomes including Salmonella and coliform prevalence. One load of 165 commercial market hogs was the experimental unit. Loads were assigned to one of two treatment groups based on the sites and caretaker’s ability to execute feed withdrawal period. Environmental samples were collected from each farm 1-4 days prior to shipment and sent to the ISU VDL for Salmonella enrichment culture. Pigs were harvested at the same slaughter facility. One head trim meat sample per load was selected at slaughter. Full stomachs were counted per load and verified through physical palpation on the line. \nA total of 59 loads were evaluated. Feed withdrawal significantly reduced feed cost, trim cost, total cost, and the percentage of carcasses requiring trimming. The proportion of pigs with full stomachs was significantly lower in off-feed loads. Loads in the off-feed treatment had significantly fewer trimmed carcasses. However, overall head trim meat Salmonella and coliform prevalence did not differ significantly between treatments. Notably, in farms that were Salmonella-negative prior, feed withdrawal markedly reduced coliform contamination.\nFeed withdrawal prior to transport improved economic outcomes and reduced carcass trimming losses without altering pathogen prevalence. Farm-level Salmonella status influenced the effect, with the greatest reduction in coliform contamination observed on Salmonella-negative farms. Economically, feed access prior to loadout increased costs by $0.70 per head. These findings suggest that feed withdrawal is beneficial for quality and cost reduction.",
-    funding: "Elanco Animal Health",
-    presenter: { name: "Kara Linder", level: "DVM/MPH Student", department: "Clinical Sciences" },
-    researchType: ResearchType.Foundational,
-    mentors: ["Kim Baker"],
-    affiliations: [],
-    presentationType: PresentationType.Poster,
-    presentationSlot: "90",
-    location: "1:45 - 3:45"
-  },
-  {
     id: "U36",
     title: "Decoding GdpS/GdpP regulation of c-di-AMP in Staphylococcus aureus",
     authors: "Tiarnan LoCascio and Casey M Gries",
@@ -1869,7 +1855,7 @@ export const abstractsData: Abstract[] = [
     location: "10:15 - 11:15"
   },
   {
-    id: "91",
+    id: "88",
     title: "Evaluating immunogenicity of a VSV-EBOV-NiV G Nipah virus vaccine administered orally in two rodent models",
     authors: "Dallas K Lokey and Richard A Bowen",
     body: "Nipah virus (NiV) is a highly lethal zoonotic pathogen endemic to Southeast Asia, causing severe neurological and respiratory disease in humans. With human-to-human transmission and case-fatality rates ranging from 40–75%—and some outbreaks reaching 100%—NiV represents a critical public health threat. Currently, no approved vaccines or treatments exist. Recognizing this, the World Health Organization lists NiV on its Blueprint List of Priority Pathogens, emphasizing the urgent need for new prevention strategies. This project assessed the immunogenicity of a VSV-EBOV-NiV G vaccine administered either orally or intramuscularly in rodents (mice and hamsters). To evaluate the development of neutralizing antibodies following oral or intramuscular vaccination, blood samples were collected on days 21 and 42 post-immunization and booster immunization, then analyzed using plaque reduction neutralization tests (PRNTs) to measure neutralizing antibody titers at 50% plaque reduction thresholds. Preliminary results indicate that oral administration induced a less robust immune response compared to intramuscular injections in mice, with neutralizing antibody titers ranging from 10-20 for oral vaccinates and 10-160 for intramuscular vaccinates. In contrast, hamsters vaccinated orally developed higher neutralizing antibodies than those who received the intramuscular doses, with titers ranging from 10-80 in oral vaccinates and 10-40 in intramuscular vaccinates. Despite producing lower titers than anticipated, the oral administration route still generated promising neutralizing antibody titers that may be sufficient in providing protection against NiV infection. These results suggest that this vaccine platform could serve as a possible preventative measure in the event of an outbreak of Nipah virus.",
@@ -1878,7 +1864,7 @@ export const abstractsData: Abstract[] = [
     mentors: ["Richard Bowen", "Angela Bosco-Lauth"],
     affiliations: ["ARBL", "Infectious Disease Research Center"],
     presentationType: PresentationType.Poster,
-    presentationSlot: "91",
+    presentationSlot: "88",
     location: "1:45 - 3:45"
   },
   {
