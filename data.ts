@@ -2,7 +2,6 @@ import { Abstract, ResearchType, PresentationType, ScheduleEvent, Sponsor } from
 
 export const scheduleData: ScheduleEvent[] = [
   { time: "9:00 – 10:00 am", title: "Check-in, Poster set-up", description: "Loading oral presentations to room computers", type: 'general' },
-  { time: "10:00 – 10:15 am", title: "Opening Remarks", location: "Auditorium", type: 'general' },
   { time: "10:15 – 11:15 am", title: "Undergraduate Poster Session", location: "Grand Events Hall", type: 'session' },
   { time: "11:15 – 11:30 am", title: "Break", description: "Undergrads remove posters", type: 'break' },
   { time: "11:30 – 1:30 pm", title: "Session I", description: "Oral Session 1A: Foundational Science (Auditorium)\nOral Session 1B: Translational Science (Boardroom)\nPoster Session 1: Odd Numbers (Grand Events Hall)", type: 'session' },
@@ -321,9 +320,9 @@ export const abstractsData: Abstract[] = [
   },
   {
     id: "18",
-    title: "Evaluation of the QuantiFit2 and AeroFit Respirator Fit Testing Devices",
+    title: "Respiratory fit testing: A comparative study on the Aerofit vs the Portacount Plus+",
     authors: "Kenya A Campbell, Othman Alkubaisi, Morgan Valley, and William Brazile",
-    body: "This study evaluates the performance of two emerging quantitative respirator fit-testing devices (QuantiFit2 and AeroFit) against the established PortaCount+ device among active-duty firefighters. The goal is to inform occupational safety practices by assessing accuracy, efficiency, and user preference.",
+    body: "This study evaluates the performance of an emerging quantitative respirator fit-testing device (AeroFit) against the established PortaCount+ device among active-duty firefighters. The goal is to inform occupational safety practices by assessing accuracy, efficiency, and user preference.",
     presenter: { name: "Kenya Campbell", level: "MS Student", department: "Environmental & Radiological Health Sciences" },
     researchType: ResearchType.Foundational,
     mentors: ["Morgan Valley", "William Brazile"],
