@@ -9,7 +9,7 @@ export const scheduleData: ScheduleEvent[] = [
   { time: "1:30 – 1:45 pm", title: "Break", description: "Remove odd posters, hang even posters", type: 'break' },
   { time: "1:45 – 3:45 pm", title: "Session II", description: "Oral Session 2A: Foundational Science (Boardroom)\nOral Session 2B: Veterinary Clinical Science (Auditorium)\nPoster Session 2: Even Numbers (Grand Events Hall)", type: 'session' },
   { time: "3:45 – 4:15 pm", title: "Refreshments & Desserts", location: "Grand Events Hall", description: "Remove all posters", type: 'social' },
-  { time: "4:15 – 5:00 pm", title: "Research Day Keynote", location: "Auditorium", type: 'general' },
+  { time: "4:15 – 5:00 pm", title: "Research Day Keynote", location: "Auditorium", description: "Dr. Julie Moreno: Pathologic Protein Accumulation and Glial Activation Dynamics in Geriatric Dogs With Cognitive Dysfunction", type: 'general' },
   { time: "5:00 – 5:30 pm", title: "Awards Ceremony", location: "Auditorium", type: 'social' },
 ];
 

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
-import { Home, Calendar, Users, ChevronLeft } from 'lucide-react';
+import { Home, Calendar, Users, ChevronLeft, Info } from 'lucide-react';
 import AbstractsView from './components/AbstractsView';
 import ScheduleView from './components/ScheduleView';
 import SponsorsView from './components/SponsorsView';
+import AboutView from './components/AboutView';
 import { Abstract, AbstractFilters } from './types';
 import AbstractDetail from './components/AbstractDetail';
 import { abstractsData } from './data';
@@ -74,6 +75,7 @@ function MainLayout() {
   // Determine current view from URL
   const currentView = location.pathname.startsWith('/schedule') ? 'schedule'
     : location.pathname.startsWith('/sponsors') ? 'sponsors'
+    : location.pathname.startsWith('/about') ? 'about'
     : 'abstracts';
 
   return (
@@ -108,6 +110,7 @@ function MainLayout() {
           )}
           {currentView === 'schedule' && <ScheduleView />}
           {currentView === 'sponsors' && <SponsorsView />}
+          {currentView === 'about' && <AboutView />}
           {/* Bottom spacer for nav */}
           <div className="h-24"></div>
         </div>
@@ -133,6 +136,12 @@ function MainLayout() {
             onClick={() => navigate('/sponsors')}
             icon={<Users size={24} />}
             label="Sponsors"
+          />
+          <NavButton
+            active={currentView === 'about'}
+            onClick={() => navigate('/about')}
+            icon={<Info size={24} />}
+            label="About"
           />
         </div>
       </nav>
@@ -171,6 +180,7 @@ export default function App() {
           <Route path="/abstracts/:id" element={<AbstractDetailPage />} />
           <Route path="/schedule" element={<MainLayout />} />
           <Route path="/sponsors" element={<MainLayout />} />
+          <Route path="/about" element={<MainLayout />} />
         </Routes>
       </BrowserRouter>
     </ErrorBoundary>
