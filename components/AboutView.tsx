@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Award, Users, Info, Trophy } from 'lucide-react';
+import { ChevronDown, ChevronUp, Award, Users, Info, Trophy, Sparkles } from 'lucide-react';
 
 const committeeMembers = [
   "AC Bobadilla",
@@ -281,6 +281,27 @@ export default function AboutView() {
               </div>
             </div>
           ))}
+        </div>
+      </CollapsibleSection>
+
+      {/* About This App */}
+      <CollapsibleSection title="About This App" icon={<Sparkles size={24} />}>
+        <div className="space-y-3 text-gray-700">
+          <p>
+            This app was built by{' '}
+            <a
+              href="https://aimeeoke.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#1E4D2B] font-semibold hover:underline"
+            >
+              Aimee Oke
+            </a>{' '}
+            using "vibe coding" — a collaborative approach where humans with ideas (but no coding background) partner with AI to bring projects to life.
+          </p>
+          <p>
+            Built with Claude 4.5 Opus, this project demonstrates that anyone can be a builder in the age of AI.
+          </p>
         </div>
       </CollapsibleSection>
     </div>
