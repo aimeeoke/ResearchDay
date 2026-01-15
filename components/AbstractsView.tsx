@@ -23,14 +23,16 @@ export default function AbstractsView({
   setFilters
  }: Props) { 
 
-  // Extract unique values for dropdowns - THIS IS THE KEY FIX
+  // Extract unique values for dropdowns
   const options = useMemo(() => {
     const depts = new Set<string>();
     const mentors = new Set<string>();
     const affiliations = new Set<string>();
+    const presenterLevels = new Set<string>();
 
     abstractsData.forEach(a => {
       depts.add(a.presenter.department);
+      presenterLevels.add(a.presenter.level);
       a.mentors.forEach(m => mentors.add(m));
       a.affiliations.forEach(aff => affiliations.add(aff));
     });
@@ -43,14 +45,15 @@ export default function AbstractsView({
         const lastNameB = b.split(' ').pop() || b;
         return lastNameA.localeCompare(lastNameB);
       }),
-      affiliations: Array.from(affiliations).sort()
+      affiliations: Array.from(affiliations).sort(),
+      presenterLevels: Array.from(presenterLevels).sort()
     };
   }, []);
 
   const activeFilterCount = Object.values(filters).filter(Boolean).length;
 
   const clearFilters = () => {
-    setFilters({ department: '', researchType: '', mentor: '', affiliation: '' });
+    setFilters({ department: '', researchType: '', mentor: '', affiliation: '', presenterLevel: '' });
     setSearchTerm('');
   };
 
@@ -85,8 +88,9 @@ export default function AbstractsView({
       const matchesType = !filters.researchType || abstract.researchType === filters.researchType;
       const matchesMentor = !filters.mentor || abstract.mentors.includes(filters.mentor);
       const matchesAffiliation = !filters.affiliation || abstract.affiliations.includes(filters.affiliation);
-      
-      return matchesSearch && matchesDepartment && matchesType && matchesMentor && matchesAffiliation;
+      const matchesPresenterLevel = !filters.presenterLevel || abstract.presenter.level === filters.presenterLevel;
+
+      return matchesSearch && matchesDepartment && matchesType && matchesMentor && matchesAffiliation && matchesPresenterLevel;
     });
   }, [searchTerm, filters]);
 
@@ -181,6 +185,18 @@ export default function AbstractsView({
                 >
                   <option value="">All Affiliations</option>
                   {options.affiliations.map(a => <option key={a} value={a}>{a}</option>)}
+                </select>
+              </div>
+
+              <div className="space-y-1">
+                <label className="text-xs font-bold text-gray-500 uppercase tracking-wide">Presenter Level</label>
+                <select
+                  className="w-full p-2 rounded-lg border border-gray-300 text-sm focus:ring-1 focus:ring-[#1E4D2B] bg-white"
+                  value={filters.presenterLevel}
+                  onChange={(e) => setFilters(prev => ({ ...prev, presenterLevel: e.target.value }))}
+                >
+                  <option value="">All Levels</option>
+                  {options.presenterLevels.map(l => <option key={l} value={l}>{l}</option>)}
                 </select>
               </div>
             </div>

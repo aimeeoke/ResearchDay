@@ -51,5 +51,6 @@ export interface AbstractFilters {
   department: string;
   researchType: string;
   mentor: string;
-  affiliation: string,
+  affiliation: string;
+  presenterLevel: string;
 }

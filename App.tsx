@@ -61,7 +61,8 @@ function MainLayout() {
     department: '',
     researchType: '',
     mentor: '',
-    affiliation: ''
+    affiliation: '',
+    presenterLevel: ''
   });
 
   const handleAbstractClick = (abstract: Abstract) => {
