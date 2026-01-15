@@ -78,9 +78,10 @@ export default function AbstractsView({
         // Standard checks
         const isTitleMatch = abstract.title.toLowerCase().includes(term);
         const isPresenterMatch = abstract.presenter.name.toLowerCase().includes(term);
+        const isAuthorsMatch = abstract.authors.toLowerCase().includes(term);
         const isIdMatch = abstract.id.toLowerCase().includes(term);
-        
-        return isTitleMatch || isPresenterMatch || isSlotMatch || isIdMatch;
+
+        return isTitleMatch || isPresenterMatch || isAuthorsMatch || isSlotMatch || isIdMatch;
       })();
 
       // 2. Multi-category Filtering
@@ -102,7 +103,7 @@ export default function AbstractsView({
           <div className="relative flex-1">
             <input
               type="text"
-              placeholder="Search by title, presenter, or presentation #"
+              placeholder="Search by title, author, or presentation #"
               className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#1E4D2B] focus:border-transparent shadow-sm"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
