@@ -1203,6 +1203,20 @@ export const abstractsData: Abstract[] = [
     location: "10:15 - 11:15"
   },
   {
+    id: "U20",
+    title: "Investigating Chronic Wasting Disease in a Cervid Fibroblast Model",
+    authors: "Carolyn F Dobkins, Katriana Popichak, Lindsay Parrie, P Smith, Jennifer Malmberg and Julie A Moreno",
+    body: "Chronic Wasting Disease (CWD) has spread throughout the United States and has traveled to both Europe and Asia via importation of diseased cervid species (such as deer and elk). Accumulation of the misfolded cellular prion protein (PrPSc) leads to neurological symptoms such as tremors, difficulty walking, behavior alterations, and death, similar to other prion diseases which can affect humans. Thus, animal proximity to humans is especially concerning. To better understand the mechanism of CWD in deer, we have established an in vitro model of fibroblasts isolated from both White Tail and Mule deer. As this is a primary deer cell line, we needed to optimize the cells' maintenance and growth conditions prior to undergoing experimentation. It is hypothesized that conditioned media from early passages will promote cell growth and viability of later passages better than new media. To test this hypothesis, we measured cellular viability and death using various ratios of new to conditioned media for ten days in culture. Further, morphological imaging was performed on day 3, 5, 7 and 10; on day 11, cell percentages of live vs. dead were quantified using both trypan blue and flow cytometry. Together, these data points demonstrate that 100:0 media can maintain normal fibroblast morphology, but 50:50 can do this and greatly increase cell viability and proliferation. 25:75 and 0:100 both had lower cell viability and had morphology more consistent with a fibroblast-like state, suggesting cellular stress with lack of media change. This optimization of cell conditions will allow us to move forward to characterize our primary cell lines and to use them as a tool to understand the cellular mechanisms of prion diseases like chronic wasting disease.",
+    funding: "USDA-NWRC",
+    presenter: { name: "Carolyn Dobkins", level: "Undergraduate Student", department: "Environmental & Radiological Health Sciences" },
+    researchType: ResearchType.Translational,
+    mentors: ["Julie Moreno", "Katriana Popichak"],
+    affiliations: ["Veterinary Diagnostic Laboratories"],
+    presentationType: PresentationType.Poster,
+    presentationSlot: "U20",
+    location: "10:15 - 11:15"
+  },
+  {
     id: "61",
     title: "Agriculture Particulate Matter-Induced Eicosanoid Metabolic Cascade in Bronchial Epithelial Cell.",
     authors: "Patrick Graham, Sean Boland, Julie A Moreno and Josh Schaeffer",

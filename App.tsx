@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation, Navigate, useSearchParams } from 'react-router-dom';
 import { Home, Calendar, Users, ChevronLeft, Info } from 'lucide-react';
 import AbstractsView from './components/AbstractsView';
 import ScheduleView from './components/ScheduleView';
@@ -20,7 +20,13 @@ function AbstractDetailPage() {
   const abstract = abstractsData.find(a => a.id === abstractId);
 
   const handleBack = () => {
-    navigate('/abstracts');
+    // Go back to the abstracts page with filters preserved
+    const from = location.state?.from;
+    if (from) {
+      navigate(from);
+    } else {
+      navigate('/abstracts');
+    }
   };
 
   if (!abstract) {
@@ -53,20 +59,37 @@ function AbstractDetailPage() {
 function MainLayout() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // Filter state lifted from AbstractsView so it persists when viewing details
-  const [searchTerm, setSearchTerm] = useState('');
+  // Initialize state from URL parameters
+  const [searchTerm, setSearchTerm] = useState(() => searchParams.get('search') || '');
   const [showFilters, setShowFilters] = useState(false);
-  const [filters, setFilters] = useState<AbstractFilters>({
-    department: '',
-    researchType: '',
-    mentor: '',
-    affiliation: '',
-    presenterLevel: ''
-  });
+  const [filters, setFilters] = useState<AbstractFilters>(() => ({
+    department: searchParams.get('dept') || '',
+    researchType: searchParams.get('type') || '',
+    mentor: searchParams.get('mentor') || '',
+    affiliation: searchParams.get('affiliation') || '',
+    presenterLevel: searchParams.get('level') || ''
+  }));
+
+  // Update URL when filters or search change
+  useEffect(() => {
+    if (location.pathname !== '/abstracts') return; // Only update URL on abstracts page
+
+    const params = new URLSearchParams();
+    if (searchTerm) params.set('search', searchTerm);
+    if (filters.department) params.set('dept', filters.department);
+    if (filters.researchType) params.set('type', filters.researchType);
+    if (filters.mentor) params.set('mentor', filters.mentor);
+    if (filters.affiliation) params.set('affiliation', filters.affiliation);
+    if (filters.presenterLevel) params.set('level', filters.presenterLevel);
+
+    setSearchParams(params, { replace: true });
+  }, [searchTerm, filters, location.pathname, setSearchParams]);
 
   const handleAbstractClick = (abstract: Abstract) => {
-    navigate(`/abstracts/${abstract.id}`);
+    // Pass current URL so we can return to it with filters intact
+    navigate(`/abstracts/${abstract.id}`, { state: { from: location.pathname + location.search } });
   };
 
   const toggleFilters = () => {
