@@ -2,7 +2,7 @@ import { Abstract, ResearchType, PresentationType, ScheduleEvent, Sponsor } from
 
 export const scheduleData: ScheduleEvent[] = [
   { time: "9:00 – 10:00 am", title: "Check-in, Poster set-up", description: "Loading oral presentations to room computers", type: 'general' },
-  { time: "10:15 – 11:15 am", title: "Undergraduate Poster Session", location: "Grand Events Hall", type: 'session' },
+  { time: "10:15 – 11:15 am", title: "Undergraduate Poster Session", location: "Grand Events Hall", type: 'general' },
   { time: "11:15 – 11:30 am", title: "Break", description: "Undergrads remove posters", type: 'break' },
   { time: "11:30 – 1:30 pm", title: "Session I", description: "Oral Session 1A: Foundational Science (Auditorium)\nOral Session 1B: Translational Science (Boardroom)\nPoster Session 1: Odd Numbers (Grand Events Hall)", type: 'session' },
   { time: "1:30 – 1:45 pm", title: "Break", description: "Remove odd posters, hang even posters", type: 'break' },
